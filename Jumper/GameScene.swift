@@ -18,10 +18,11 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         // Add
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
-
+        
         // Player setup
         let playerNode = self.childNode(withName: "player") as! SKSpriteNode
         player = Player(node: playerNode)
+        
         // Playerline setup
         let playerlineNode = self.childNode(withName: "playerline") as! SKSpriteNode
         playerline = PlayerLine(node: playerlineNode)
@@ -34,7 +35,7 @@ class GameScene: SKScene {
             case .player:
                 for touch in touches {
                     let location = touch.location(in: self)
-
+                    
                     if player.node.contains(location) {
                         self.initialPosition = location
                     }
@@ -51,11 +52,25 @@ class GameScene: SKScene {
         if player.isMoving {
             for touch in (touches) {
                 let location = touch.location(in: self)
-
+                
                 // TODO limitar quantidade de graus maximo, fazer o calculo usando o tamanho da tela
-                playerline.node.zRotation = location.x / 50
+                let pointB = CGPoint(x: playerline.node.position.x, y: location.y)
+                let catetoAd = location.x - pointB.x
+                let catetoOp = playerline.node.position.y - pointB.y
+                
+                let hipotenusa = pow(catetoAd, 2) + pow(catetoOp, 2)
+                
+                let angle = catetoAd / catetoOp
+                //let degrees = 1 - angle
+                print(angle)
+                let degrees = angle
+//                let degreesToRadians =  angle * CGFloat.pi / 180
+                //print(degreesToRadians)
+                playerline.node.zRotation =  degrees
+                
                 // TODO fazer referente a distancia percorida
-                playerline.node.yScale = -location.y / 150
+                
+                playerline.node.yScale = 2
             }
         }
     }
@@ -64,10 +79,18 @@ class GameScene: SKScene {
         if player.isMoving {
             for touch in (touches) {
                 let location = touch.location(in: self)
-
-                print(location)
-                let force = CGVector(dx: location.x * -30, dy: location.y * 10)
-                player.node.physicsBody?.applyImpulse(force)
+                self.finalPosition = location
+                
+                let dx = -(finalPosition!.x - initialPosition!.x) * 5
+                let dy = -(finalPosition!.y - initialPosition!.y)  * 10
+                let impulse = CGVector(dx: dx, dy: dy)
+                
+                player.node.physicsBody?.applyImpulse(impulse)
+                //player.node.physicsBody?.applyAngularImpulse(100)
+                
+                //print(location)
+                //                let force = CGVector(dx: location.x * -30, dy: location.y * 10)
+                //                player.node.physicsBody?.applyImpulse(force)
             }
             
             player.isMoving = false
@@ -80,7 +103,7 @@ class GameScene: SKScene {
     func identifyTouch(_ touches: Set<UITouch>) -> TouchObject? {
         for touch in touches {
             let location = touch.location(in: self)
-
+            
             if player.node.contains(location) {
                 return .player
             }
