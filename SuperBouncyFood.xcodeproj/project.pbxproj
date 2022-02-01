@@ -20,7 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7A72204527A2E1A500720C1F /* Jumper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jumper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A72204527A2E1A500720C1F /* Super Bouncy Food.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Bouncy Food.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A72204827A2E1A500720C1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A72204A27A2E1A500720C1F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		7A72204E27A2E1A500720C1F /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -47,7 +47,7 @@
 		7A72203C27A2E1A500720C1F = {
 			isa = PBXGroup;
 			children = (
-				7A72204727A2E1A500720C1F /* Jumper */,
+				7A72204727A2E1A500720C1F /* SuperBouncyFood */,
 				7A72204627A2E1A500720C1F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,12 +55,12 @@
 		7A72204627A2E1A500720C1F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7A72204527A2E1A500720C1F /* Jumper.app */,
+				7A72204527A2E1A500720C1F /* Super Bouncy Food.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7A72204727A2E1A500720C1F /* Jumper */ = {
+		7A72204727A2E1A500720C1F /* SuperBouncyFood */ = {
 			isa = PBXGroup;
 			children = (
 				7A72204827A2E1A500720C1F /* AppDelegate.swift */,
@@ -74,15 +74,15 @@
 				B53425B227A4104B00D3C44B /* Player.swift */,
 				B53425B427A4151F00D3C44B /* PlayerLine.swift */,
 			);
-			path = Jumper;
+			path = SuperBouncyFood;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7A72204427A2E1A500720C1F /* Jumper */ = {
+		7A72204427A2E1A500720C1F /* SuperBouncyFood */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7A72205C27A2E1A700720C1F /* Build configuration list for PBXNativeTarget "Jumper" */;
+			buildConfigurationList = 7A72205C27A2E1A700720C1F /* Build configuration list for PBXNativeTarget "SuperBouncyFood" */;
 			buildPhases = (
 				7A72204127A2E1A500720C1F /* Sources */,
 				7A72204227A2E1A500720C1F /* Frameworks */,
@@ -92,9 +92,9 @@
 			);
 			dependencies = (
 			);
-			name = Jumper;
-			productName = Jumper;
-			productReference = 7A72204527A2E1A500720C1F /* Jumper.app */;
+			name = SuperBouncyFood;
+			productName = SuperBouncyFood;
+			productReference = 7A72204527A2E1A500720C1F /* Super Bouncy Food.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -112,7 +112,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7A72204027A2E1A500720C1F /* Build configuration list for PBXProject "Jumper" */;
+			buildConfigurationList = 7A72204027A2E1A500720C1F /* Build configuration list for PBXProject "SuperBouncyFood" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -125,7 +125,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7A72204427A2E1A500720C1F /* Jumper */,
+				7A72204427A2E1A500720C1F /* SuperBouncyFood */,
 			);
 		};
 /* End PBXProject section */
@@ -317,8 +317,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.jumper.Jumper;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.superbouncyfood.Superbouncyfood;
+				PRODUCT_NAME = "Super Bouncy Food";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -346,8 +346,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.jumper.Jumper;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.superbouncyfood.Superbouncyfood;
+				PRODUCT_NAME = SuperBouncyFood;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -357,7 +357,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7A72204027A2E1A500720C1F /* Build configuration list for PBXProject "Jumper" */ = {
+		7A72204027A2E1A500720C1F /* Build configuration list for PBXProject "SuperBouncyFood" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7A72205A27A2E1A700720C1F /* Debug */,
@@ -366,7 +366,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7A72205C27A2E1A700720C1F /* Build configuration list for PBXNativeTarget "Jumper" */ = {
+		7A72205C27A2E1A700720C1F /* Build configuration list for PBXNativeTarget "SuperBouncyFood" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7A72205D27A2E1A700720C1F /* Debug */,

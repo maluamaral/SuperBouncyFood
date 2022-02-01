@@ -1,6 +1,6 @@
 //
 //  Player.swift
-//  Jumper
+//  SuperBouncyFood
 //
 //  Created by Felipe Seolin Bento on 28/01/22.
 //

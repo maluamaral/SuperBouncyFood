@@ -1,6 +1,6 @@
 //
 //  GameViewController.swift
-//  Jumper
+//  SuperBouncyFood
 //
 //  Created by Maria Luiza Amaral on 27/01/22.
 //
