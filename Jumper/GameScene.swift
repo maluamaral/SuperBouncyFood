@@ -58,19 +58,21 @@ class GameScene: SKScene {
                 let catetoAd = location.x - pointB.x
                 let catetoOp = playerline.node.position.y - pointB.y
                 
-                let hipotenusa = pow(catetoAd, 2) + pow(catetoOp, 2)
+                //let hipotenusa = pow(catetoAd, 2) + pow(catetoOp, 2)
                 
                 let angle = catetoAd / catetoOp
-                //let degrees = 1 - angle
-                print(angle)
-                let degrees = angle
-//                let degreesToRadians =  angle * CGFloat.pi / 180
-                //print(degreesToRadians)
-                playerline.node.zRotation =  degrees
+            
+//               let degreesToRadians =  angle * CGFloat.pi / 180
+                if location.y <= player.node.position.y {
+                    playerline.node.isHidden = false
+                    playerline.node.zRotation =  angle
+                    
+                    // TODO fazer referente a distancia percorida
+                    playerline.node.yScale = 2
                 
-                // TODO fazer referente a distancia percorida
-                
-                playerline.node.yScale = 2
+                }else{
+                    playerline.node.isHidden = true
+                }
             }
         }
     }
