@@ -8,15 +8,20 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private var player: Player!
     private var playerline: PlayerLine!
+    private var spawner: PlatformSpawner!
+    
+    private var lastUpdate = TimeInterval(0)
     private var initialPosition: CGPoint?
     private var finalPosition: CGPoint?
     
     override func didMove(to view: SKView) {
         // Add
+        self.physicsWorld.contactDelegate = self
+        
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
         
         // Player setup
@@ -25,8 +30,15 @@ class GameScene: SKScene {
         
         // Playerline setup
         let playerlineNode = self.childNode(withName: "playerline") as! SKSpriteNode
-        playerline = PlayerLine(node: playerlineNode)
+        playerline = PlayerLine(node: playerlineNode, parent: self, player: player)
         playerlineNode.removeFromParent()
+        
+        // Plataform setup
+        let platformsNode = childNode(withName: "platforms")!
+        spawner = PlatformSpawner(platformModel: platformsNode, parent: self, player: player)
+        
+        spawner.start()
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -42,8 +54,8 @@ class GameScene: SKScene {
                 }
                 
                 player.isMoving = true
-                playerline.node.position = CGPoint(x: player.node.position.x, y: player.node.position.y + 50)
-                self.addChild(playerline.node)
+               
+                playerline.show()
             }
         }
     }
@@ -53,26 +65,7 @@ class GameScene: SKScene {
             for touch in (touches) {
                 let location = touch.location(in: self)
                 
-                // TODO limitar quantidade de graus maximo, fazer o calculo usando o tamanho da tela
-                let pointB = CGPoint(x: playerline.node.position.x, y: location.y)
-                let catetoAd = location.x - pointB.x
-                let catetoOp = playerline.node.position.y - pointB.y
-                
-                //let hipotenusa = pow(catetoAd, 2) + pow(catetoOp, 2)
-                
-                let angle = catetoAd / catetoOp
-            
-//               let degreesToRadians =  angle * CGFloat.pi / 180
-                if location.y <= player.node.position.y {
-                    playerline.node.isHidden = false
-                    playerline.node.zRotation =  angle
-                    
-                    // TODO fazer referente a distancia percorida
-                    playerline.node.yScale = 2
-                
-                }else{
-                    playerline.node.isHidden = true
-                }
+                playerline.move(atualLocation: location)
             }
         }
     }
@@ -83,22 +76,11 @@ class GameScene: SKScene {
                 let location = touch.location(in: self)
                 self.finalPosition = location
                 
-                let dx = -(finalPosition!.x - initialPosition!.x) * 5
-                let dy = -(finalPosition!.y - initialPosition!.y)  * 10
-                let impulse = CGVector(dx: dx, dy: dy)
-                
-                player.node.physicsBody?.applyImpulse(impulse)
-                //player.node.physicsBody?.applyAngularImpulse(100)
-                
-                //print(location)
-                //                let force = CGVector(dx: location.x * -30, dy: location.y * 10)
-                //                player.node.physicsBody?.applyImpulse(force)
+                player.jump(startPosition: initialPosition!, finalPosition: finalPosition!)
             }
             
             player.isMoving = false
-            playerline.node.zRotation = 0
-            playerline.node.yScale = 2
-            playerline.node.removeFromParent()
+            playerline.reset()
         }
     }
     
@@ -116,7 +98,17 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
-    }
+        
+        if lastUpdate == 0 {
+            lastUpdate = currentTime
+            return
+        }
+        
+        let deltaTime = currentTime - lastUpdate
+        lastUpdate = currentTime
+        
+        
+        }
 }
 
 enum TouchObject {
