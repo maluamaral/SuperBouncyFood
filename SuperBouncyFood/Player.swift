@@ -9,6 +9,7 @@ import SpriteKit
 
 class Player: GameObject {
     var isMoving: Bool = false
+    var impulse = CGVector(dx: 0, dy: 0)
     
     override init(node: SKSpriteNode) {
         super.init(node: node)
@@ -16,7 +17,7 @@ class Player: GameObject {
     }
     
     func jump(startPosition: CGPoint, finalPosition: CGPoint){
-        let dx = -(finalPosition.x - startPosition.x) * 5
+        let dx = -(finalPosition.x - startPosition.x) * 10
         let dy = -(finalPosition.y - startPosition.y)  * 10
         let impulse = CGVector(dx: dx, dy: dy)
         
