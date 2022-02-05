@@ -12,8 +12,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private var player: Player!
     private var ground: Ground!
+    private var dish: SKSpriteNode!
     private var playerline: PlayerLine!
     private var spawner: PlatformSpawner!
+    private var scoreText: SKLabelNode!
+    private var gameArea: SKSpriteNode!
+    private var dishBase: SKSpriteNode!
     private var edges: Edge!
     
     private var initialPosition: CGPoint?
@@ -26,18 +30,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Add
         self.physicsWorld.contactDelegate = self
         
-        //self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
+        // Area setup
+        gameArea = childNode(withName: "area") as? SKSpriteNode
         
         // Player setup
         let playerNode = self.childNode(withName: "player") as! SKSpriteNode
         player = Player(node: playerNode)
         playerNode.name = "player"
-        firstPosition = player.node.position
         
         //Ground setup
         let groundNode = self.childNode(withName: "ground") as! SKSpriteNode
         ground = Ground(node: groundNode)
         groundNode.name = "ground"
+        
+        //Dish setup
+        dish = self.childNode(withName: "dish") as? SKSpriteNode
+        dishBase = self.childNode(withName: "base") as? SKSpriteNode
         
         // Playerline setup
         let playerlineNode = self.childNode(withName: "playerline") as! SKSpriteNode
@@ -45,10 +53,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playerlineNode.removeFromParent()
         
         // Plataform setup
-        let platformsNode = childNode(withName: "platforms")!
-        spawner = PlatformSpawner(platformModel: platformsNode, parent: self, player: player)
-        platformsNode.name = "plataform"
+        let platformNode = childNode(withName: "platform") as! SKSpriteNode
+        spawner = PlatformSpawner(platformModel: platformNode, parent: self, player: player,gameArea: gameArea)
+        platformNode.name = "plataform"
         
+        // Score setup
+        scoreText = childNode(withName: "score") as? SKLabelNode
+        
+        // Edges setup
         let leftEdgeNode = childNode(withName: "leftEdge")!
         let rightEdgeNode = childNode(withName: "rightEdge")!
         let topEdgeNode = childNode(withName: "topEdge")!
@@ -57,11 +69,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         rightEdgeNode.name = "right"
         topEdgeNode.name = "top"
         
-        edges = Edge(edges: [leftEdgeNode, rightEdgeNode, topEdgeNode], parent: self)
+        edges = Edge(edges: [leftEdgeNode, rightEdgeNode, topEdgeNode])
         
-        edges.makeEdgeBounds()
+        start()
+        
+    }
+    
+    func start(){
+        edges.makeEdgeBounds(area: gameArea)
         spawner.makePlatforms()
-        
+        firstPosition = player.node.position
+        player.animationSetup(state: .stop)
+        scoreSetup()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -73,12 +92,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     
                     if player.node.contains(location) {
                         self.initialPosition = location
+                        player.start()
+                        player.animationSetup(state: .holding)
+                        
                     }
                 }
                 
                 player.isMoving = true
-               
-                playerline.show()
+                //playerline.show()
+                
             }
         }
     }
@@ -88,7 +110,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             for touch in (touches) {
                 let location = touch.location(in: self)
                 
-                playerline.move(atualLocation: location)
+                //playerline.move(atualLocation: location)
             }
         }
     }
@@ -100,16 +122,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.finalPosition = location
                 
                 player.jump(startPosition: initialPosition!, finalPosition: finalPosition!)
+                player.animationSetup(state: .movement)
 //                
             }
-            makeScore()
+            saveScore()
             player.isMoving = false
-            playerline.reset()
+            //playerline.reset()
+            ground.start()
+            dishBase.removeFromParent()
         }
     }
     
     override func update(_ currentTime: TimeInterval) {
-        spawner.updatePlatforms(ground: ground.node)
+        checkPlayerPosition()
+        spawner.updatePlatforms(ground: ground.node, dish: dish)
+        
+        if (player.node.physicsBody?.velocity.dy)! < 0 {
+            player.animationSetup(state: .stop)
+            
+        }
+       
     }
     
     func identifyTouch(_ touches: Set<UITouch>) -> TouchObject? {
@@ -124,20 +156,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return nil
     }
     
+    func checkPlayerPosition() {
+        if player.node.position.y < UIScreen.main.bounds.minY {
+            gameOver()
+        }
+    }
+    
     
     func didBegin(_ contact: SKPhysicsContact) {
-        guard let nodeA = contact.bodyA.node else { return }
-        guard let nodeB = contact.bodyB.node else { return }
+//        guard let nodeA = contact.bodyA.node else { return }
+//        guard let nodeB = contact.bodyB.node else { return }
 
-            if nodeA.name == "edge" {
-                print("opa, plataforma")
-                  jumpCounter = 0
-                  print("e morreu")
-                
-                
-            } else if nodeB.name == "player" {
-                collisionBetween(player: nodeA, plataform: nodeB)
-            }
+//            if nodeA.name == "edge" {
+//
+//            } else if nodeB.name == "player" {
+//                //collisionBetween(player: nodeA, plataform: nodeB)
+//            }
     }
     
     func collisionBetween(player: SKNode, plataform: SKNode) {
@@ -145,9 +179,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print("plataforma")
     }
     
-    func makeScore(){
-        score = Int(player.node.position.y - initialPosition!.y)
+    func scoreSetup(){
+        scoreText.fontSize = 50.0
+        scoreText.fontName = "HelveticaNeue-Regular"
+        scoreText.fontColor = UIColor(named: "brigadeiro")
+    
     }
+    
+    func saveScore(){
+        jumpCounter = Float(player.node.position.y - initialPosition!.y)
+        if jumpCounter > 0 {
+            score += Int(jumpCounter)
+            scoreText.text = "\(score)"
+        }
+        
+    }
+    
+    func gameOver(){
+        player.die()
+    }
+    
+    func reset(){
+        score = 0
+        
+    }
+    
+    
 }
 
 enum TouchObject {

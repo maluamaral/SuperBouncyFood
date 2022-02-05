@@ -10,6 +10,8 @@
 		7A587C1127A96A230025DD6C /* PlatformSpawner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A587C1027A96A230025DD6C /* PlatformSpawner.swift */; };
 		7A587C1327AB43560025DD6C /* Ground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A587C1227AB43560025DD6C /* Ground.swift */; };
 		7A587C1527AC9A650025DD6C /* Edge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A587C1427AC9A650025DD6C /* Edge.swift */; };
+		7A587C1827AECC060025DD6C /* HomeScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7A587C1727AECC060025DD6C /* HomeScene.sks */; };
+		7A587C1A27AECF6B0025DD6C /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A587C1927AECF6B0025DD6C /* HomeScene.swift */; };
 		7A72204927A2E1A500720C1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A72204827A2E1A500720C1F /* AppDelegate.swift */; };
 		7A72204B27A2E1A500720C1F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7A72204A27A2E1A500720C1F /* GameScene.sks */; };
 		7A72204F27A2E1A500720C1F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A72204E27A2E1A500720C1F /* GameScene.swift */; };
@@ -26,6 +28,8 @@
 		7A587C1027A96A230025DD6C /* PlatformSpawner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformSpawner.swift; sourceTree = "<group>"; };
 		7A587C1227AB43560025DD6C /* Ground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ground.swift; sourceTree = "<group>"; };
 		7A587C1427AC9A650025DD6C /* Edge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edge.swift; sourceTree = "<group>"; };
+		7A587C1727AECC060025DD6C /* HomeScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HomeScene.sks; sourceTree = "<group>"; };
+		7A587C1927AECF6B0025DD6C /* HomeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScene.swift; sourceTree = "<group>"; };
 		7A72204527A2E1A500720C1F /* Super Bouncy Food.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Bouncy Food.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A72204827A2E1A500720C1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A72204A27A2E1A500720C1F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -50,6 +54,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A587C1627ACC5A00025DD6C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B53425B227A4104B00D3C44B /* Player.swift */,
+				B53425B427A4151F00D3C44B /* PlayerLine.swift */,
+				7A587C1027A96A230025DD6C /* PlatformSpawner.swift */,
+				7A587C1227AB43560025DD6C /* Ground.swift */,
+				7A587C1427AC9A650025DD6C /* Edge.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		7A587C1B27AECF7B0025DD6C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				7A587C1727AECC060025DD6C /* HomeScene.sks */,
+				7A587C1927AECF6B0025DD6C /* HomeScene.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		7A587C1C27AECF830025DD6C /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				7A72204A27A2E1A500720C1F /* GameScene.sks */,
+				7A72204E27A2E1A500720C1F /* GameScene.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
 		7A72203C27A2E1A500720C1F = {
 			isa = PBXGroup;
 			children = (
@@ -69,19 +103,15 @@
 		7A72204727A2E1A500720C1F /* SuperBouncyFood */ = {
 			isa = PBXGroup;
 			children = (
+				7A587C1C27AECF830025DD6C /* Game */,
+				7A587C1B27AECF7B0025DD6C /* Home */,
 				7A72204827A2E1A500720C1F /* AppDelegate.swift */,
-				7A72204A27A2E1A500720C1F /* GameScene.sks */,
-				7A72204E27A2E1A500720C1F /* GameScene.swift */,
 				7A72205027A2E1A500720C1F /* GameViewController.swift */,
+				B53425B027A40F7500D3C44B /* GameObject.swift */,
+				7A587C1627ACC5A00025DD6C /* Components */,
 				7A72205227A2E1A500720C1F /* Main.storyboard */,
 				7A72205527A2E1A700720C1F /* Assets.xcassets */,
 				7A72205727A2E1A700720C1F /* LaunchScreen.storyboard */,
-				B53425B027A40F7500D3C44B /* GameObject.swift */,
-				B53425B227A4104B00D3C44B /* Player.swift */,
-				B53425B427A4151F00D3C44B /* PlayerLine.swift */,
-				7A587C1027A96A230025DD6C /* PlatformSpawner.swift */,
-				7A587C1227AB43560025DD6C /* Ground.swift */,
-				7A587C1427AC9A650025DD6C /* Edge.swift */,
 			);
 			path = SuperBouncyFood;
 			sourceTree = "<group>";
@@ -145,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A72205427A2E1A500720C1F /* Main.storyboard in Resources */,
+				7A587C1827AECC060025DD6C /* HomeScene.sks in Resources */,
 				7A72204B27A2E1A500720C1F /* GameScene.sks in Resources */,
 				7A72205627A2E1A700720C1F /* Assets.xcassets in Resources */,
 				7A72205927A2E1A700720C1F /* LaunchScreen.storyboard in Resources */,
@@ -161,6 +192,7 @@
 				B53425B127A40F7500D3C44B /* GameObject.swift in Sources */,
 				7A72204F27A2E1A500720C1F /* GameScene.swift in Sources */,
 				7A72205127A2E1A500720C1F /* GameViewController.swift in Sources */,
+				7A587C1A27AECF6B0025DD6C /* HomeScene.swift in Sources */,
 				B53425B327A4104B00D3C44B /* Player.swift in Sources */,
 				7A587C1127A96A230025DD6C /* PlatformSpawner.swift in Sources */,
 				B53425B527A4151F00D3C44B /* PlayerLine.swift in Sources */,
