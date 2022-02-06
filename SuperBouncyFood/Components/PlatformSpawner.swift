@@ -31,8 +31,12 @@ class PlatformSpawner {
     
     func makePlatforms(){
         let spaceBetweenPlatforms = gameArea.frame.size.height/4
+        var x : CGFloat = 0
         for i in 0..<Int(gameArea.frame.size.height/spaceBetweenPlatforms) {
-            let x = CGFloat.random(in: gameArea.frame.minX...gameArea.frame.maxX)
+            if i == 0 || i == 1 {
+                x = CGFloat.random(in: gameArea.frame.minX...player.node.frame.minX)
+            }
+            x = CGFloat.random(in: gameArea.frame.minX...gameArea.frame.maxX)
             let y = CGFloat.random(in: CGFloat(i)*spaceBetweenPlatforms + 100...CGFloat(i+1)*spaceBetweenPlatforms)
             spawn(at: CGPoint(x: x, y: y))
         }
@@ -48,7 +52,7 @@ class PlatformSpawner {
         if player.isMoving {
             //minimumHeight = 0
             distance = 30 - jump
-            jump += 0.16
+            //jump += 0.16
             
         }
         if player.node.position.y > minimumHeight && playerVelocity > 0  {
@@ -78,6 +82,7 @@ class PlatformSpawner {
         platform.removeAllActions()
         point.removeAllActions()
         platform.alpha = 1.0
+        point.alpha = 1.0
         
         point.position.y = gameArea.frame.size.height + platform.frame.size.height/2 + platform.position.y
         ground.position.y = gameArea.frame.size.height + ground.frame.size.height/2 + ground.position.y
@@ -98,7 +103,7 @@ class PlatformSpawner {
         new.position = position
         newPoint.position = CGPoint(x: position.x, y: position.y + 22)
        
-        new.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 242, height: 50))
+        new.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 242, height: 45))
         new.physicsBody?.isDynamic = false
         new.physicsBody?.affectedByGravity = false
         

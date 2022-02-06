@@ -172,15 +172,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         guard let nodeA = contact.bodyA.node else { return }
         guard let nodeB = contact.bodyB.node else { return }
 
-            if nodeA.name == "pointMarker" {
+            if nodeA.name == "plataform" {
                 print("olha o ponto")
 
-            } else if nodeB.name == "platform" {
+            } else if nodeB.name == "pointMarker" {
                 saveScore()
+                collisionBetween()
             }
     }
     
-    func collisionBetween(player: SKNode, plataform: SKNode) {
+    func collisionBetween() {
         
     }
     
