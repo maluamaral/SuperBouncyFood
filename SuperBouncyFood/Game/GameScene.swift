@@ -18,6 +18,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var scoreText: SKLabelNode!
     private var gameArea: SKSpriteNode!
     private var dishBase: SKSpriteNode!
+    private var pointMarker: SKSpriteNode!
     private var edges: Edge!
     
     private var initialPosition: CGPoint?
@@ -53,9 +54,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playerlineNode.removeFromParent()
         
         // Plataform setup
-        let platformNode = childNode(withName: "platform") as! SKSpriteNode
-        spawner = PlatformSpawner(platformModel: platformNode, parent: self, player: player,gameArea: gameArea)
-        platformNode.name = "plataform"
+        let platformNode = childNode(withName: "platform") as? SKSpriteNode
+        platformNode!.name = "plataform"
+        pointMarker = childNode(withName: "point") as? SKSpriteNode
+        pointMarker.name = "pointMarker"
+       
+        spawner = PlatformSpawner(platformModel: platformNode!, parent: self, player: player,gameArea: gameArea, pointMarker: pointMarker)
+       
         
         // Score setup
         scoreText = childNode(withName: "score") as? SKLabelNode
@@ -157,46 +162,53 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func checkPlayerPosition() {
-        if player.node.position.y < UIScreen.main.bounds.minY {
+        if player.node.position.y < 30 {
             gameOver()
         }
     }
     
     
     func didBegin(_ contact: SKPhysicsContact) {
-//        guard let nodeA = contact.bodyA.node else { return }
-//        guard let nodeB = contact.bodyB.node else { return }
+        guard let nodeA = contact.bodyA.node else { return }
+        guard let nodeB = contact.bodyB.node else { return }
 
-//            if nodeA.name == "edge" {
-//
-//            } else if nodeB.name == "player" {
-//                //collisionBetween(player: nodeA, plataform: nodeB)
-//            }
+            if nodeA.name == "pointMarker" {
+                print("olha o ponto")
+
+            } else if nodeB.name == "platform" {
+                saveScore()
+            }
     }
     
     func collisionBetween(player: SKNode, plataform: SKNode) {
-        jumpCounter += 1
-        print("plataforma")
+        
     }
     
     func scoreSetup(){
         scoreText.fontSize = 50.0
         scoreText.fontName = "HelveticaNeue-Regular"
-        scoreText.fontColor = UIColor(named: "brigadeiro")
+        scoreText.fontColor = UIColor(named: "preto")
     
     }
     
+    //TODO: contagem de pontos a partir de bater na parte de cima da plataforma
     func saveScore(){
         jumpCounter = Float(player.node.position.y - initialPosition!.y)
         if jumpCounter > 0 {
             score += Int(jumpCounter)
-            scoreText.text = "\(score)"
+            scoreText.text = "\(score)m"
         }
         
     }
     
     func gameOver(){
         player.die()
+        print(score)
+        let gameScene = GameOverScene(fileNamed: "GameOverScene")
+        gameScene?.scaleMode = .aspectFill
+        gameScene?.finalScore = score
+        view?.presentScene(gameScene)
+        
     }
     
     func reset(){

@@ -12,6 +12,8 @@
 		7A587C1527AC9A650025DD6C /* Edge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A587C1427AC9A650025DD6C /* Edge.swift */; };
 		7A587C1827AECC060025DD6C /* HomeScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7A587C1727AECC060025DD6C /* HomeScene.sks */; };
 		7A587C1A27AECF6B0025DD6C /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A587C1927AECF6B0025DD6C /* HomeScene.swift */; };
+		7A587C1F27AED0870025DD6C /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A587C1E27AED0870025DD6C /* GameOverScene.swift */; };
+		7A587C2127AED0B70025DD6C /* GameOverScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7A587C2027AED0B70025DD6C /* GameOverScene.sks */; };
 		7A72204927A2E1A500720C1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A72204827A2E1A500720C1F /* AppDelegate.swift */; };
 		7A72204B27A2E1A500720C1F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7A72204A27A2E1A500720C1F /* GameScene.sks */; };
 		7A72204F27A2E1A500720C1F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A72204E27A2E1A500720C1F /* GameScene.swift */; };
@@ -30,6 +32,8 @@
 		7A587C1427AC9A650025DD6C /* Edge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edge.swift; sourceTree = "<group>"; };
 		7A587C1727AECC060025DD6C /* HomeScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HomeScene.sks; sourceTree = "<group>"; };
 		7A587C1927AECF6B0025DD6C /* HomeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScene.swift; sourceTree = "<group>"; };
+		7A587C1E27AED0870025DD6C /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		7A587C2027AED0B70025DD6C /* GameOverScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameOverScene.sks; sourceTree = "<group>"; };
 		7A72204527A2E1A500720C1F /* Super Bouncy Food.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Bouncy Food.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A72204827A2E1A500720C1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A72204A27A2E1A500720C1F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -84,6 +88,15 @@
 			path = Game;
 			sourceTree = "<group>";
 		};
+		7A587C1D27AED06C0025DD6C /* GameOver */ = {
+			isa = PBXGroup;
+			children = (
+				7A587C1E27AED0870025DD6C /* GameOverScene.swift */,
+				7A587C2027AED0B70025DD6C /* GameOverScene.sks */,
+			);
+			path = GameOver;
+			sourceTree = "<group>";
+		};
 		7A72203C27A2E1A500720C1F = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +116,7 @@
 		7A72204727A2E1A500720C1F /* SuperBouncyFood */ = {
 			isa = PBXGroup;
 			children = (
+				7A587C1D27AED06C0025DD6C /* GameOver */,
 				7A587C1C27AECF830025DD6C /* Game */,
 				7A587C1B27AECF7B0025DD6C /* Home */,
 				7A72204827A2E1A500720C1F /* AppDelegate.swift */,
@@ -178,6 +192,7 @@
 				7A587C1827AECC060025DD6C /* HomeScene.sks in Resources */,
 				7A72204B27A2E1A500720C1F /* GameScene.sks in Resources */,
 				7A72205627A2E1A700720C1F /* Assets.xcassets in Resources */,
+				7A587C2127AED0B70025DD6C /* GameOverScene.sks in Resources */,
 				7A72205927A2E1A700720C1F /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -191,6 +206,7 @@
 			files = (
 				B53425B127A40F7500D3C44B /* GameObject.swift in Sources */,
 				7A72204F27A2E1A500720C1F /* GameScene.swift in Sources */,
+				7A587C1F27AED0870025DD6C /* GameOverScene.swift in Sources */,
 				7A72205127A2E1A500720C1F /* GameViewController.swift in Sources */,
 				7A587C1A27AECF6B0025DD6C /* HomeScene.swift in Sources */,
 				B53425B327A4104B00D3C44B /* Player.swift in Sources */,
