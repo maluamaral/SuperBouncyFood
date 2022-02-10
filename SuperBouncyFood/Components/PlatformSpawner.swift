@@ -15,106 +15,136 @@ class PlatformSpawner {
     private var pointMarkers = [SKSpriteNode]()
     private var player: Player
     private var gameArea: SKSpriteNode!
-    private var pointMarker: SKSpriteNode!
     
     private var jump : CGFloat = 0
+    private var reachLimit: Bool = false
     
     
-    init(platformModel: SKSpriteNode, parent: SKNode, player: Player, gameArea: SKSpriteNode, pointMarker: SKSpriteNode) {
+    init(platformModel: SKSpriteNode, parent: SKNode, player: Player, gameArea: SKSpriteNode) {
         self.platformModel = platformModel
         self.parent = parent
         self.player = player
         self.gameArea = gameArea
-        self.pointMarker = pointMarker
         
     }
     
-    func makePlatforms(){
-        let spaceBetweenPlatforms = gameArea.frame.size.height/4
-        var x : CGFloat = 0
-        for i in 0..<Int(gameArea.frame.size.height/spaceBetweenPlatforms) {
-            if i == 0 || i == 1 {
-                x = CGFloat.random(in: gameArea.frame.minX...player.node.frame.minX)
-            }
-            x = CGFloat.random(in: gameArea.frame.minX...gameArea.frame.maxX)
-            let y = CGFloat.random(in: CGFloat(i)*spaceBetweenPlatforms + 100...CGFloat(i+1)*spaceBetweenPlatforms)
-            spawn(at: CGPoint(x: x, y: y))
+    func start() {
+        makePlatforms()
+    }
+    
+    func makePlatforms() {
+        let frameSize: CGFloat = gameArea.frame.size.height
+        let spaceBetweenPlatforms: CGFloat = platformModel.size.height * 3
+
+        for _ in 0...Int(frameSize / spaceBetweenPlatforms) {
+            spawnPlatform()
         }
     }
     
+    func spawnPlatform() {
+        let spaceBetweenPlatforms: CGFloat = platformModel.size.height * 3
+        var y: CGFloat = 370
+        var isRight = true
+        if let lastPlatform = platforms.last {
+            y = lastPlatform.frame.maxY + spaceBetweenPlatforms
+            isRight = lastPlatform.position.x < gameArea.frame.midX
+        }
+        
+        let minLeft: CGFloat = gameArea.frame.minX + (platformModel.size.width / 3)
+        let maxRight: CGFloat = gameArea.frame.maxX - (platformModel.size.width / 4)
+        let midLeft: CGFloat = gameArea.frame.midX - (platformModel.size.width / 2)
+        let midRight: CGFloat = gameArea.frame.midX + (platformModel.size.width / 2)
+        
+        let x: CGFloat = isRight ?
+            CGFloat.random(in: midRight...maxRight) :
+            CGFloat.random(in: minLeft...midLeft)
+        let spawnPoint = CGPoint(x: x, y: y)
+        spawn(at: spawnPoint)
+    }
     
-    func updatePlatforms(ground: SKNode, dish: SKNode) {
-        let minimumHeight: CGFloat = gameArea.frame.size.height/2
-        guard let playerVelocity = player.node.physicsBody?.velocity.dy else {
+    func update(ground: SKNode, dish: SKNode, base: SKSpriteNode) {
+        guard let playerVelocity = player.node.physicsBody?.velocity else {
             return
         }
-        var distance = playerVelocity/50
-        if player.isMoving {
-            //minimumHeight = 0
-            distance = 30 - jump
-            //jump += 0.16
-            
+        
+        // Check if reached limit
+        let limit: CGFloat = gameArea.frame.size.height * 0.40
+        if player.node.position.y >= limit {
+            reachLimit = true
         }
-        if player.node.position.y > minimumHeight && playerVelocity > 0  {
-            for platform in platforms {
-                for point in pointMarkers {
-                    //TODO: nao deixar as plataformas descerem quando a coxinha nao consegue subir numa plataforma
-                    
-                    platform.position.y -= CGFloat(distance)
-                    point.position.y -= CGFloat(distance)
-                    ground.position.y -= CGFloat(distance)
-                    dish.position.y -= CGFloat(distance)
-                    if platform.position.y < platform.frame.size.height/2 {
-                        print("saindo de fininho")
-                        
-                        update(platform: platform, ground: ground, dish: dish as! SKSpriteNode, point: point)
-                    }
-                }
-                
+        // If has not reach the limit or the player is not falling, return
+        if !reachLimit {
+            return
+        }
+        
+        let distance: CGFloat = abs(playerVelocity.dy / 50)
+        for platform in platforms {
+            platform.position.y -= distance
+            if platform.frame.maxY < gameArea.frame.minY {
+                platforms.removeFirst()
+                platform.removeFromParent()
+                updatePlatforms()
             }
+        }
+        
+        ground.position.y -= CGFloat(distance)
+        dish.position.y -= CGFloat(distance)
+        base.position.y -= CGFloat(distance)
+        
+        if !player.isMoving {
+            reachLimit = false
+        }
+        
+        updateGround(distance: distance, ground: ground, dish: dish, base: base)
+    }
+    
+    func updateGround(distance: CGFloat, ground: SKNode, dish: SKNode, base: SKSpriteNode) {
+        if ground.parent == nil && dish.parent == nil && base.parent == nil {
+            return
+        }
+        // Update position
+        if ground.parent != nil {
+            ground.position.y -= CGFloat(distance)
+        }
+        if dish.parent != nil {
+            dish.position.y -= CGFloat(distance)
+        }
+        if base.parent != nil {
+            base.position.y -= CGFloat(distance)
+        }
+        // Remove from parent if under screen
+        if ground.parent != nil && ground.frame.maxY < gameArea.frame.minY {
+            ground.removeFromParent()
+        }
+        if dish.parent != nil && dish.frame.maxY < gameArea.frame.minY {
+            dish.removeFromParent()
+        }
+        if base.parent != nil && base.frame.maxY < gameArea.frame.minY {
+            GameScene.score = 2
+            base.removeFromParent()
         }
     }
     
-    func update(platform: SKSpriteNode, ground: SKNode, dish: SKSpriteNode, point: SKSpriteNode) {
-        platform.position.x = CGFloat.random(in: gameArea.frame.minX...gameArea.frame.size.width)
-        point.position = CGPoint(x: platform.position.x, y: platform.position.y)
-
-        platform.removeAllActions()
-        point.removeAllActions()
-        platform.alpha = 1.0
-        point.alpha = 1.0
-        
-        point.position.y = gameArea.frame.size.height + platform.frame.size.height/2 + platform.position.y
-        ground.position.y = gameArea.frame.size.height + ground.frame.size.height/2 + ground.position.y
-        platform.position.y = gameArea.frame.size.height + platform.frame.size.height/2 + platform.position.y
-        dish.position.y = gameArea.frame.size.height + dish.frame.size.height/2 + dish.position.y
-
-        ground.removeFromParent()
-        dish.removeFromParent()
-        
-        
-        
-        
+    func updatePlatforms() {
+        spawnPlatform()
+        GameScene.score += 2
     }
     
     func spawn(at position: CGPoint) {
-        let newPoint = pointMarker.copy() as! SKSpriteNode
         let new = platformModel.copy() as! SKSpriteNode
         new.position = position
-        newPoint.position = CGPoint(x: position.x, y: position.y + 22)
        
         new.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 242, height: 45))
         new.physicsBody?.isDynamic = false
         new.physicsBody?.affectedByGravity = false
+        new.name = "platform"
         
         // case is left
         if new.position.x >= gameArea.frame.midX {
             new.xScale = -(new.xScale)
         }
         parent.addChild(new)
-        parent.addChild(newPoint)
         platforms.append(new)
-        pointMarkers.append(newPoint)
         
     }
     

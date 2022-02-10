@@ -24,6 +24,7 @@
 		B53425B127A40F7500D3C44B /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53425B027A40F7500D3C44B /* GameObject.swift */; };
 		B53425B327A4104B00D3C44B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53425B227A4104B00D3C44B /* Player.swift */; };
 		B53425B527A4151F00D3C44B /* PlayerLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53425B427A4151F00D3C44B /* PlayerLine.swift */; };
+		B58627A827B131E300F09ABF /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58627A727B131E300F09ABF /* Base.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		B53425B027A40F7500D3C44B /* GameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
 		B53425B227A4104B00D3C44B /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		B53425B427A4151F00D3C44B /* PlayerLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLine.swift; sourceTree = "<group>"; };
+		B58627A727B131E300F09ABF /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				7A587C1027A96A230025DD6C /* PlatformSpawner.swift */,
 				7A587C1227AB43560025DD6C /* Ground.swift */,
 				7A587C1427AC9A650025DD6C /* Edge.swift */,
+				B58627A727B131E300F09ABF /* Base.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B58627A827B131E300F09ABF /* Base.swift in Sources */,
 				B53425B127A40F7500D3C44B /* GameObject.swift in Sources */,
 				7A72204F27A2E1A500720C1F /* GameScene.swift in Sources */,
 				7A587C1F27AED0870025DD6C /* GameOverScene.swift in Sources */,
@@ -363,7 +367,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 6JQBX9UWVN;
+				DEVELOPMENT_TEAM = 5UX9P2B2T5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -392,7 +396,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 6JQBX9UWVN;
+				DEVELOPMENT_TEAM = 5UX9P2B2T5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

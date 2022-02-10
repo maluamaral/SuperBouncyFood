@@ -13,9 +13,9 @@ class Ground: GameObject {
     }
     
     func start(){
-       node.physicsBody = SKPhysicsBody.init(rectangleOf: CGSize(width: 1024, height: 266))
-       node.physicsBody?.isDynamic = false
-      node.physicsBody?.affectedByGravity = false
+        node.physicsBody = SKPhysicsBody.init(rectangleOf: CGSize(width: 1024, height: 266))
+        node.physicsBody?.isDynamic = false
+        node.physicsBody?.affectedByGravity = false
     }
-
+    
 }
