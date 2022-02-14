@@ -212,10 +212,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func gameOver() {
         player.die()
-        let gameScene = GameOverScene(fileNamed: "GameOverScene")
-        gameScene?.scaleMode = .aspectFill
-        gameScene?.finalScore = GameScene.score
-        view?.presentScene(gameScene)
+//        let gameScene = GameOverScene(fileNamed: "GameOverScene")
+//        gameScene?.scaleMode = .aspectFill
+//        gameScene?.finalScore = GameScene.score
+//        view?.presentScene(gameScene)
         
     }
     
