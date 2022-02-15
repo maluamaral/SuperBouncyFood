@@ -8,9 +8,11 @@ import SpriteKit
 
 class Edge: SKNode {
     private var edges: [SKNode]
+    private var camera: SKCameraNode
     
-    init(edges: [SKNode]) {
+    init(edges: [SKNode], camera: SKCameraNode) {
         self.edges = edges
+        self.camera = camera
         super.init()
     }
     
@@ -18,21 +20,18 @@ class Edge: SKNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func makeEdgeBounds(area: SKSpriteNode){
+    func makeEdgeBounds(area: SKSpriteNode) {
         for edge in edges {
             switch edge.name {
             case "left" :
-                edge.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 1, height: area.frame.height))
+                edge.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 1, height: area.frame.height * 2))
                 edge.position = CGPoint(x: area.frame.minX, y: area.frame.midY)
-                print("esquerda")
             case "right" :
-                edge.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 1, height: area.frame.height))
+                edge.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 1, height: area.frame.height * 2))
                 edge.position = CGPoint(x: area.frame.maxX, y: area.frame.midY)
-                print("direita")
             case "top" :
-                edge.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: area.frame.width, height: 1 ))
+                edge.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: area.frame.width * 2, height: 1 ))
                 edge.position = CGPoint(x: area.frame.midX, y: area.frame.maxY)
-                print("top")
             default :
                 print("nao há edges")
             }
@@ -40,11 +39,24 @@ class Edge: SKNode {
             edge.physicsBody?.isDynamic = false
             edge.physicsBody?.affectedByGravity = false
         }
-        
-        
-        //Right
-        
-        //Top
+    }
+    
+    func update() {
+        for edge in edges {
+            switch edge.name {
+            case "left" :
+                edge.position.y = camera.position.y
+            case "right" :
+                edge.position.y = camera.position.y
+            case "top" :
+                edge.position.x = camera.position.x
+            default :
+                print("nao há edges")
+            }
+            
+            edge.physicsBody?.isDynamic = false
+            edge.physicsBody?.affectedByGravity = false
+        }
     }
 
 }

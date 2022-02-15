@@ -14,18 +14,19 @@ class PlatformSpawner {
     private var platforms = [SKSpriteNode]()
     private var pointMarkers = [SKSpriteNode]()
     private var player: Player
-    private var gameArea: SKSpriteNode!
+    private var gameArea: SKSpriteNode
+    private var camera: SKCameraNode
     
     private var jump : CGFloat = 0
     private var reachLimit: Bool = false
     
     
-    init(platformModel: SKSpriteNode, parent: SKNode, player: Player, gameArea: SKSpriteNode) {
+    init(platformModel: SKSpriteNode, parent: SKNode, player: Player, gameArea: SKSpriteNode, camera: SKCameraNode) {
         self.platformModel = platformModel
         self.parent = parent
         self.player = player
         self.gameArea = gameArea
-        
+        self.camera = camera
     }
     
     func start() {
@@ -63,71 +64,31 @@ class PlatformSpawner {
     }
     
     func update(ground: SKNode, dish: SKNode, base: SKSpriteNode) {
-        guard let playerVelocity = player.node.physicsBody?.velocity else {
-            return
-        }
-        
-        // Check if reached limit
-        let limit: CGFloat = gameArea.frame.size.height * 0.40
-        if player.node.position.y >= limit {
-            reachLimit = true
-        }
-        // If has not reach the limit or the player is not falling, return
-        if !reachLimit {
-            return
-        }
-        
-        let distance: CGFloat = abs(playerVelocity.dy / 50)
-        for platform in platforms {
-            platform.position.y -= distance
-            if platform.frame.maxY < gameArea.frame.minY {
-                platforms.removeFirst()
-                platform.removeFromParent()
-                updatePlatforms()
-            }
-        }
-        
-        ground.position.y -= CGFloat(distance)
-        dish.position.y -= CGFloat(distance)
-        base.position.y -= CGFloat(distance)
-        
-        if !player.isMoving {
-            reachLimit = false
-        }
-        
-        updateGround(distance: distance, ground: ground, dish: dish, base: base)
+        updateGround(ground: ground, dish: dish, base: base)
+        updatePlatforms()
     }
     
-    func updateGround(distance: CGFloat, ground: SKNode, dish: SKNode, base: SKSpriteNode) {
+    func updateGround(ground: SKNode, dish: SKNode, base: SKSpriteNode) {
         if ground.parent == nil && dish.parent == nil && base.parent == nil {
             return
         }
-        // Update position
-        if ground.parent != nil {
-            ground.position.y -= CGFloat(distance)
-        }
-        if dish.parent != nil {
-            dish.position.y -= CGFloat(distance)
-        }
-        if base.parent != nil {
-            base.position.y -= CGFloat(distance)
-        }
-        // Remove from parent if under screen
-        if ground.parent != nil && ground.frame.maxY < gameArea.frame.minY {
+        // Check if ground, dish, and base is off screen
+        if ground.frame.maxY < camera.position.y - (gameArea.frame.height / 2) {
             ground.removeFromParent()
-        }
-        if dish.parent != nil && dish.frame.maxY < gameArea.frame.minY {
             dish.removeFromParent()
-        }
-        if base.parent != nil && base.frame.maxY < gameArea.frame.minY {
-            GameScene.score = 2
             base.removeFromParent()
         }
     }
     
+    // Check if some platform is off screen
     func updatePlatforms() {
-        spawnPlatform()
-        GameScene.score += 2
+        for (i, platform) in platforms.enumerated() {
+            if platform.frame.maxY < camera.position.y - (gameArea.frame.height / 2) {
+                platform.removeFromParent()
+                platforms.remove(at: i)
+                spawnPlatform()
+            }
+        }
     }
     
     func spawn(at position: CGPoint) {
@@ -145,7 +106,6 @@ class PlatformSpawner {
         }
         parent.addChild(new)
         platforms.append(new)
-        
     }
     
 }

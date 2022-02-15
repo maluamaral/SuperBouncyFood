@@ -11,19 +11,11 @@ class Player: GameObject {
     var isMoving: Bool = false
     var isFalling: Bool = false
     var isJumping: Bool = false
-    var impulse = CGVector(dx: 0, dy: 0)
-    
-    override init(node: SKSpriteNode) {
-        super.init(node: node)
-    }
+    var topY: CGFloat = 0
     
     func jump(lineScale: CGFloat, lineRotation: CGFloat) {
-        let yImpulse = lineScale * 400.0
-//        if yImpulse < 180 {
-//            yImpulse *= 2
-//        }
-        
-        let xImpulse = -lineRotation * 250
+        let yImpulse = lineScale * 350.0
+        let xImpulse = -lineRotation * 350.0
         
         let impulse = CGVector(dx: xImpulse, dy: yImpulse)
         node.physicsBody?.applyImpulse(impulse)
@@ -34,9 +26,15 @@ class Player: GameObject {
         node.physicsBody?.affectedByGravity = true
         node.physicsBody?.mass = 0.35
         node.name = "player"
+        
+        topY = node.position.y
     }
     
     func update(_ currentTime: TimeInterval) {
+        if node.position.y > topY {
+            topY = node.position.y
+        }
+        
         if let playerPB = node.physicsBody {
             // Check if is jumping
             if playerPB.velocity.dy > 0 {
