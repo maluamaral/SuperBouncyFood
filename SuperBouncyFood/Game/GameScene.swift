@@ -13,6 +13,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var player: Player!
     private var ground: Ground!
     private var base: Base!
+    private var background: Background!
     private var dish: SKSpriteNode!
     private var playerline: PlayerLine!
     private var playerLineContainer: SKSpriteNode!
@@ -62,7 +63,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         baseNode.name = "base"
         
         // Playerline setup
-        playerLineContainer = self.childNode(withName: "playerLineContainer") as! SKSpriteNode
+        playerLineContainer = self.childNode(withName: "playerLineContainer") as? SKSpriteNode
         let playerlineNode = playerLineContainer.childNode(withName: "playerline") as! SKSpriteNode
         playerline = PlayerLine(node: playerlineNode, parent: self, player: player, container: playerLineContainer)
         playerLineContainer.removeFromParent()
@@ -71,7 +72,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let platformNode = childNode(withName: "platform") as? SKSpriteNode
         platformNode!.name = "plataform"
         
-        spawner = PlatformSpawner(platformModel: platformNode!, parent: self, player: player,gameArea: gameArea)
+        spawner = PlatformSpawner(platformModel: platformNode!, parent: self, player: player,gameArea: gameArea, camera: cam)
         
         // Score setup
         scoreText = childNode(withName: "score") as? SKLabelNode
@@ -80,18 +81,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Edges setup
         let leftEdgeNode = childNode(withName: "leftEdge")!
         let rightEdgeNode = childNode(withName: "rightEdge")!
-        let topEdgeNode = childNode(withName: "topEdge")!
         
         leftEdgeNode.name = "left"
         rightEdgeNode.name = "right"
-        topEdgeNode.name = "top"
         
-        edges = Edge(edges: [leftEdgeNode, rightEdgeNode, topEdgeNode])
+        edges = Edge(edges: [leftEdgeNode, rightEdgeNode], camera: cam)
+        
+        // Background setup
+        let backgroundNode = childNode(withName: "backgrounds")!
+        background = Background(node: backgroundNode, gameArea: gameArea, camera: cam)
         
         start()
     }
     
-    func start(){
+    func start() {
         edges.makeEdgeBounds(area: gameArea)
         spawner.start()
         firstPosition = player.node.position
@@ -151,10 +154,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         checkPlayerPosition()
-//        spawner.update(ground: ground.node, dish: dish, base: base.node)
+        spawner.update(ground: ground.node, dish: dish, base: base.node)
         player.update(currentTime)
         saveScore()
-        
+        background.update()
+        edges.update()
+        // Move camera
         if player.node.position.y > topY {
             topY = player.node.position.y
             cam.position.y = topY
@@ -172,9 +177,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         return nil
     }
-    
+                          
     func checkPlayerPosition() {
-        if player.node.position.y < 30 {
+        if player.node.frame.minY < cam.position.y - (gameArea.frame.height / 2) {
             gameOver()
         }
     }
@@ -182,9 +187,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func didBegin(_ contact: SKPhysicsContact) {
         saveScore()
-        if contact.bodyA.node?.name == "platform" || contact.bodyB.node?.name == "platform" {
-            
-        }
     }
     
     func scoreSetup() {
@@ -201,13 +203,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreMetersText.position.x = scoreText.frame.maxX + 15.0
     }
     
-    //TODO: contagem de pontos a partir de bater na parte de cima da plataforma
     func saveScore() {
-//        jumpCounter = Float(player.node.position.y - initialPosition!.y)
-//        if jumpCounter > 0 {
-//        GameScene.score += Int(total)
+        GameScene.score = (Int(player.topY) / 220) - 1
+        print("GameScene.score \(GameScene.score)")
         scoreText.text = String(format: "%06d", GameScene.score)
-//        }
     }
     
     func gameOver() {
@@ -216,7 +215,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameScene?.scaleMode = .aspectFill
         gameScene?.finalScore = GameScene.score
         view?.presentScene(gameScene)
-        
     }
     
     func reset(){
