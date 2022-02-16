@@ -72,7 +72,7 @@
                                             <color key="baseForegroundColor" name="brigadeiro"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="sendToPause:" destination="BV1-FR-VrT" eventType="touchUpInside" id="fTE-9Z-Qi5"/>
+                                            <action selector="sendToRanking:" destination="BV1-FR-VrT" eventType="touchUpInside" id="pdn-Lt-ryq"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ranking" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xtG-mP-7HV">
@@ -91,7 +91,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
                                         <connections>
-                                            <action selector="sentoToGameOver:" destination="BV1-FR-VrT" eventType="touchUpInside" id="4tq-lf-crs"/>
+                                            <action selector="sentoToGame:" destination="BV1-FR-VrT" eventType="touchUpInside" id="4eD-D8-NSJ"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jogar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4z2-LG-Z1Q">
@@ -133,7 +133,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="playButton" destination="rWI-Ce-VLU" id="hCM-rc-r7m"/>
+                        <outlet property="playButton" destination="rWI-Ce-VLU" id="z9j-Yt-aye"/>
                         <outlet property="rankingButton" destination="oJK-Ze-BWf" id="DBw-9Y-kUK"/>
                         <outlet property="settingsButton" destination="Gg6-X4-kAf" id="UiT-SW-fnd"/>
                     </connections>
@@ -213,6 +213,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="">
                                             <color key="baseForegroundColor" name="brigadeiro"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="restartGame:" destination="mL3-Wx-04a" eventType="touchUpInside" id="91g-ZY-slh"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reiniciar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wL4-fl-Sp8">
                                         <rect key="frame" x="0.0" y="14" width="55.333333333333336" height="17"/>
@@ -230,8 +233,12 @@
                                         <color key="tintColor" name="creme"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="">
+                                            <backgroundConfiguration key="background"/>
                                             <color key="baseForegroundColor" name="brigadeiro"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="goToRanking:" destination="mL3-Wx-04a" eventType="touchUpInside" id="KPm-OW-5ea"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ranking" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLx-OD-pR4">
                                         <rect key="frame" x="0.0" y="14" width="52" height="17"/>
@@ -252,6 +259,7 @@
                                             <backgroundConfiguration key="background"/>
                                         </buttonConfiguration>
                                         <connections>
+                                            <action selector="seeAd:" destination="mL3-Wx-04a" eventType="touchUpInside" id="h8d-Nd-QGr"/>
                                             <action selector="sentoToGameOver:" destination="BV1-FR-VrT" eventType="touchUpInside" id="13R-Oz-Gad"/>
                                         </connections>
                                     </button>
@@ -294,13 +302,15 @@
                     <navigationItem key="navigationItem" id="qRK-5A-3Bl"/>
                     <connections>
                         <outlet property="continuePlayButton" destination="LEZ-3j-GbN" id="HOi-vT-ZDK"/>
+                        <outlet property="currentScoreLabel" destination="6Nk-y2-eYG" id="qbu-ee-UUv"/>
                         <outlet property="rankingButton" destination="ann-uK-b1C" id="iPf-MG-fEv"/>
+                        <outlet property="recordLabel" destination="Yfn-2E-RAZ" id="2xl-LY-iIU"/>
                         <outlet property="restartButton" destination="r63-N4-Y9X" id="zH7-Xa-cPe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HtH-jc-Ded" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="271" y="106"/>
+            <point key="canvasLocation" x="564" y="-590"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="sf7-TD-T3j">
@@ -440,7 +450,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
                                         <connections>
-                                            <action selector="sentoToGameOver:" destination="BV1-FR-VrT" eventType="touchUpInside" id="zNJ-8Q-QCU"/>
+                                            <action selector="returnToGame:" destination="La9-4n-aFk" eventType="touchUpInside" id="aTn-ND-yP2"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jogar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Sx-OW-Wi8">
@@ -461,6 +471,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="">
                                             <color key="baseForegroundColor" name="brigadeiro"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="restartGame:" destination="La9-4n-aFk" eventType="touchUpInside" id="sL8-X1-6NZ"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reiniciar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5uf-hY-t6m">
                                         <rect key="frame" x="0.0" y="15" width="55.333333333333336" height="17"/>
@@ -507,17 +520,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="tiE-Ag-Gnq">
-                                <rect key="frame" x="84" y="328" width="260" height="31"/>
+                                <rect key="frame" x="84" y="327.66666666666669" width="260" height="31"/>
                                 <color key="minimumTrackTintColor" name="coxinha"/>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Efeitos sonoros" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABk-Pl-9HJ">
-                                <rect key="frame" x="86" y="396" width="163" height="28.666666666666686"/>
+                                <rect key="frame" x="86" y="395.66666666666669" width="163" height="28.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                 <color key="textColor" name="creme"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="K9d-KG-1Qf">
-                                <rect key="frame" x="84" y="432" width="260" height="31"/>
+                                <rect key="frame" x="84" y="431.66666666666669" width="260" height="31"/>
                                 <color key="minimumTrackTintColor" name="coxinha"/>
                             </slider>
                         </subviews>
@@ -560,6 +573,65 @@
             </objects>
             <point key="canvasLocation" x="1912" y="106"/>
         </scene>
+        <!--Game View Controller-->
+        <scene sceneID="Ddh-n4-Sou">
+            <objects>
+                <viewController storyboardIdentifier="game" id="Csa-HD-Q3a" customClass="GameViewController" customModule="SuperBouncyFood" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ye0-gm-8Ba" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vjL-vY-P1v">
+                                <rect key="frame" x="20" y="49" width="393" height="36"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleAspectFit" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="m89-s3-bXx">
+                                        <rect key="frame" x="0.0" y="0.0" width="137.33333333333334" height="36"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="000000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7a-0Y-nad" userLabel="score">
+                                                <rect key="frame" x="0.0" y="0.0" width="120.66666666666667" height="36"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6o-v5-nkd" userLabel="measure">
+                                                <rect key="frame" x="120.66666666666667" y="12" width="16.666666666666671" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <color key="textColor" name="preto"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hc-7N-x2z" userLabel="pause">
+                                        <rect key="frame" x="369" y="11" width="24" height="14"/>
+                                        <color key="tintColor" name="preto"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title=""/>
+                                        <connections>
+                                            <action selector="pauseGame:" destination="Csa-HD-Q3a" eventType="touchUpInside" id="iLy-nO-Jjq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qo5-BV-3Iv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" name="preto"/>
+                        <constraints>
+                            <constraint firstItem="vjL-vY-P1v" firstAttribute="leading" secondItem="qo5-BV-3Iv" secondAttribute="leading" constant="20" id="aHQ-gu-SFV"/>
+                            <constraint firstItem="qo5-BV-3Iv" firstAttribute="trailing" secondItem="vjL-vY-P1v" secondAttribute="trailing" constant="15" id="gv1-u3-LE3"/>
+                            <constraint firstItem="vjL-vY-P1v" firstAttribute="top" secondItem="qo5-BV-3Iv" secondAttribute="top" constant="5" id="qCH-dI-dZb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="measureLabel" destination="O6o-v5-nkd" id="ES2-oj-6Hh"/>
+                        <outlet property="pauseButton" destination="9hc-7N-x2z" id="HmX-kw-JPK"/>
+                        <outlet property="scoreLabel" destination="w7a-0Y-nad" id="lL7-Yv-uoI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YSC-Nx-XfF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-158.41121495327101" y="-589.63282937365011"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Fire" width="390" height="181"/>
@@ -584,8 +656,14 @@
         <namedColor name="creme">
             <color red="0.95300000905990601" green="0.92500001192092896" blue="0.85100001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="preto">
+            <color red="0.18431372549019609" green="0.18431372549019609" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="tomate">
             <color red="0.85900002717971802" green="0.33300000429153442" blue="0.2199999988079071" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

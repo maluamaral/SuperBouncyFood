@@ -10,10 +10,11 @@ import UIKit
 
 extension UIButton{
     
-    func setupButton(iconString: String, color: UIColor){
+    func setupButton(iconString: String, color: UIColor) {
         let configuration = UIImage.SymbolConfiguration(font: UIFont.systemFont(ofSize: 30, weight: .semibold))
+        let image = UIImage(systemName: iconString, withConfiguration: configuration)?.withTintColor(color).withRenderingMode(.alwaysOriginal)
         
-        self.setImage(UIImage(systemName: iconString, withConfiguration: configuration), for: .normal)
+        self.setImage(image, for: .normal)
         self.tintColor = color
     }
     

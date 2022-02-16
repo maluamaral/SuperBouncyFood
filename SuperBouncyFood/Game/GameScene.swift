@@ -10,6 +10,8 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    var viewController: GameViewController!
+    
     private var player: Player!
     private var ground: Ground!
     private var base: Base!
@@ -18,8 +20,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var playerline: PlayerLine!
     private var playerLineContainer: SKSpriteNode!
     private var spawner: PlatformSpawner!
-    private var scoreText: SKLabelNode!
-    private var scoreMetersText: SKLabelNode!
+    
+    
     private var gameArea: SKSpriteNode!
     private var dishBase: SKSpriteNode!
     private var pointMarker: SKSpriteNode!
@@ -34,6 +36,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     static var score: Int = 0
     
     override func didMove(to view: SKView) {
+        self.reset()
+        
+        viewController.isDisplayingGameOver = false
+        
         // Add
         self.physicsWorld.contactDelegate = self
         
@@ -74,10 +80,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         spawner = PlatformSpawner(platformModel: platformNode!, parent: self, player: player,gameArea: gameArea, camera: cam)
         
-        // Score setup
-        scoreText = childNode(withName: "score") as? SKLabelNode
-        scoreMetersText = childNode(withName: "scoreMeters") as? SKLabelNode
-        
         // Edges setup
         let leftEdgeNode = childNode(withName: "leftEdge")!
         let rightEdgeNode = childNode(withName: "rightEdge")!
@@ -99,7 +101,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         spawner.start()
         firstPosition = player.node.position
         player.animationSetup(state: .stop)
-        scoreSetup()
         player.start()
     }
     
@@ -156,7 +157,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         checkPlayerPosition()
         spawner.update(ground: ground.node, dish: dish, base: base.node)
         player.update(currentTime)
-        saveScore()
         background.update()
         edges.update()
         // Move camera
@@ -164,6 +164,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             topY = player.node.position.y
             cam.position.y = topY
         }
+        
+        
+        GameScene.score = (Int(player.topY) / 220) - 1
+        viewController.updateScore(GameScene.score)
     }
     
     func identifyTouch(_ touches: Set<UITouch>) -> TouchObject? {
@@ -180,42 +184,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                           
     func checkPlayerPosition() {
         if player.node.frame.minY < cam.position.y - (gameArea.frame.height / 2) {
-            gameOver()
+            viewController.gameOver(score: GameScene.score)
         }
     }
     
-    
     func didBegin(_ contact: SKPhysicsContact) {
-        saveScore()
-    }
-    
-    func scoreSetup() {
-        scoreText.fontSize = 50.0
-        scoreText.fontName = "HelveticaNeue-Bold"
-        scoreText.fontColor = UIColor(named: "preto")
-        scoreText.text = String(format: "%06d", 0)
-        
-        scoreMetersText.fontSize = 35.0
-        scoreMetersText.fontName = "HelveticaNeue-Regular"
-        scoreMetersText.fontColor = UIColor(named: "preto")
-        scoreMetersText.text = "m"
-        scoreMetersText.position.y = scoreText.position.y
-        scoreMetersText.position.x = scoreText.frame.maxX + 15.0
-    }
-    
-    func saveScore() {
-        GameScene.score = (Int(player.topY) / 220) - 1
-        print("GameScene.score \(GameScene.score)")
-        scoreText.text = String(format: "%06d", GameScene.score)
-    }
-    
-    func gameOver() {
-        player.die()
-//        let gameScene = GameOverScene(fileNamed: "GameOverScene")
-//        gameScene?.scaleMode = .aspectFill
-//        gameScene?.finalScore = GameScene.score
-//        view?.presentScene(gameScene)
-        
     }
     
     func reset(){

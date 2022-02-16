@@ -14,7 +14,7 @@ class Player: GameObject {
     var topY: CGFloat = 0
     
     func jump(lineScale: CGFloat, lineRotation: CGFloat) {
-        let yImpulse = lineScale * 350.0
+        let yImpulse = lineScale * 550.0
         let xImpulse = -lineRotation * 350.0
         
         let impulse = CGVector(dx: xImpulse, dy: yImpulse)
@@ -81,11 +81,8 @@ class Player: GameObject {
         node.texture = texture
     }
     
-    func die(){
-        
+    func die() {
         animationSetup(state: .dead)
-        print("morri")
-        
     }
     
     func touchBegan() {
