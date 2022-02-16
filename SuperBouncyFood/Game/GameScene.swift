@@ -7,6 +7,7 @@
 
 import SpriteKit
 import GameplayKit
+import FirebaseAnalytics
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
@@ -97,6 +98,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func start() {
+        Analytics.logEvent("level_start", parameters: nil)
+        
         edges.makeEdgeBounds(area: gameArea)
         spawner.start()
         firstPosition = player.node.position
@@ -184,6 +187,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                           
     func checkPlayerPosition() {
         if player.node.frame.minY < cam.position.y - (gameArea.frame.height / 2) {
+            Analytics.logEvent("level_end", parameters: nil)
+            Analytics.setUserProperty(GameScene.score.description, forName: "player_distance")
             viewController.gameOver(score: GameScene.score)
         }
     }
@@ -192,6 +197,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func reset(){
+        Analytics.logEvent("level_reset", parameters: nil)
+        
         GameScene.score = 0
     }
 }

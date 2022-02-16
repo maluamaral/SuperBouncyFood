@@ -6,6 +6,7 @@
 //
 
 import SpriteKit
+import FirebaseAnalytics
 
 class Player: GameObject {
     var isMoving: Bool = false
@@ -14,11 +15,16 @@ class Player: GameObject {
     var topY: CGFloat = 0
     
     func jump(lineScale: CGFloat, lineRotation: CGFloat) {
-        let yImpulse = lineScale * 550.0
+        let yImpulse = lineScale * 350.0
         let xImpulse = -lineRotation * 350.0
         
         let impulse = CGVector(dx: xImpulse, dy: yImpulse)
         node.physicsBody?.applyImpulse(impulse)
+        
+        Analytics.logEvent("player_jump", parameters: [
+            "impulse_y": yImpulse as NSNumber,
+            "impulse_x": xImpulse as NSNumber
+        ])
     }
     
     func start() {

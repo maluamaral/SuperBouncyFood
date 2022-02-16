@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03BCADBB1B2CF0EB4B91F124 /* Pods_SuperBouncyFood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3F0AF91C90273E53691CCC /* Pods_SuperBouncyFood.framework */; };
 		7A0475A727B5F7C6001132CD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0475A627B5F7C6001132CD /* HomeViewController.swift */; };
 		7A0475AB27B6172D001132CD /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0475AA27B6172D001132CD /* GameOverViewController.swift */; };
 		7A0475B027B69B15001132CD /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0475AF27B69B15001132CD /* UIButton.swift */; };
@@ -27,9 +28,13 @@
 		B53425B527A4151F00D3C44B /* PlayerLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53425B427A4151F00D3C44B /* PlayerLine.swift */; };
 		B53FB05627BB2AF1003BA867 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FB05527BB2AF1003BA867 /* Background.swift */; };
 		B58627A827B131E300F09ABF /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58627A727B131E300F09ABF /* Base.swift */; };
+		B5BE27BA27BCB81100F8EA40 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5BE27B927BCB81100F8EA40 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E795F796531A6AC2C4F84F4 /* Pods-SuperBouncyFood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperBouncyFood.debug.xcconfig"; path = "Target Support Files/Pods-SuperBouncyFood/Pods-SuperBouncyFood.debug.xcconfig"; sourceTree = "<group>"; };
+		470CFD45411F154C9FAD2DAC /* Pods-SuperBouncyFood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperBouncyFood.release.xcconfig"; path = "Target Support Files/Pods-SuperBouncyFood/Pods-SuperBouncyFood.release.xcconfig"; sourceTree = "<group>"; };
+		5B3F0AF91C90273E53691CCC /* Pods_SuperBouncyFood.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SuperBouncyFood.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0475A627B5F7C6001132CD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7A0475AA27B6172D001132CD /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 		7A0475AF27B69B15001132CD /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
@@ -51,6 +56,7 @@
 		B53425B427A4151F00D3C44B /* PlayerLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLine.swift; sourceTree = "<group>"; };
 		B53FB05527BB2AF1003BA867 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		B58627A727B131E300F09ABF /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
+		B5BE27B927BCB81100F8EA40 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03BCADBB1B2CF0EB4B91F124 /* Pods_SuperBouncyFood.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +132,8 @@
 			children = (
 				7A72204727A2E1A500720C1F /* SuperBouncyFood */,
 				7A72204627A2E1A500720C1F /* Products */,
+				C12CBF9FEDA2919EB74F94C2 /* Pods */,
+				B9C5EA2D05873B004332F7D6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,6 +160,7 @@
 				7A72205227A2E1A500720C1F /* Main.storyboard */,
 				7A72205527A2E1A700720C1F /* Assets.xcassets */,
 				7A72205727A2E1A700720C1F /* LaunchScreen.storyboard */,
+				B5BE27B927BCB81100F8EA40 /* GoogleService-Info.plist */,
 			);
 			path = SuperBouncyFood;
 			sourceTree = "<group>";
@@ -163,6 +173,23 @@
 			path = Pause;
 			sourceTree = "<group>";
 		};
+		B9C5EA2D05873B004332F7D6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B3F0AF91C90273E53691CCC /* Pods_SuperBouncyFood.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C12CBF9FEDA2919EB74F94C2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0E795F796531A6AC2C4F84F4 /* Pods-SuperBouncyFood.debug.xcconfig */,
+				470CFD45411F154C9FAD2DAC /* Pods-SuperBouncyFood.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -170,9 +197,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7A72205C27A2E1A700720C1F /* Build configuration list for PBXNativeTarget "SuperBouncyFood" */;
 			buildPhases = (
+				6FB5BBB8B6157E037989BB48 /* [CP] Check Pods Manifest.lock */,
 				7A72204127A2E1A500720C1F /* Sources */,
 				7A72204227A2E1A500720C1F /* Frameworks */,
 				7A72204327A2E1A500720C1F /* Resources */,
+				323316056F703E49AC797364 /* [CP] Embed Pods Frameworks */,
+				B5BE27BB27BCB97F00F8EA40 /* Firebase Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -223,12 +253,75 @@
 			files = (
 				7A72205427A2E1A500720C1F /* Main.storyboard in Resources */,
 				7A72204B27A2E1A500720C1F /* GameScene.sks in Resources */,
+				B5BE27BA27BCB81100F8EA40 /* GoogleService-Info.plist in Resources */,
 				7A72205627A2E1A700720C1F /* Assets.xcassets in Resources */,
 				7A72205927A2E1A700720C1F /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		323316056F703E49AC797364 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SuperBouncyFood/Pods-SuperBouncyFood-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SuperBouncyFood/Pods-SuperBouncyFood-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SuperBouncyFood/Pods-SuperBouncyFood-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6FB5BBB8B6157E037989BB48 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SuperBouncyFood-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B5BE27BB27BCB97F00F8EA40 /* Firebase Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "Firebase Crashlytics";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7A72204127A2E1A500720C1F /* Sources */ = {
@@ -394,11 +487,13 @@
 		};
 		7A72205D27A2E1A700720C1F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E795F796531A6AC2C4F84F4 /* Pods-SuperBouncyFood.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 5UX9P2B2T5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -423,6 +518,7 @@
 		};
 		7A72205E27A2E1A700720C1F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 470CFD45411F154C9FAD2DAC /* Pods-SuperBouncyFood.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
