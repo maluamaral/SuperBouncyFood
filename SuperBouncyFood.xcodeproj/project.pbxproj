@@ -23,6 +23,8 @@
 		7A72205627A2E1A700720C1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A72205527A2E1A700720C1F /* Assets.xcassets */; };
 		7A72205927A2E1A700720C1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A72205727A2E1A700720C1F /* LaunchScreen.storyboard */; };
 		7AF637AE27B973F3006783A6 /* PauseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF637AD27B973F3006783A6 /* PauseViewController.swift */; };
+		B526B77627BF391400CE8AC9 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B526B77527BF391400CE8AC9 /* Environment.swift */; };
+		B526B77827BF40AF00CE8AC9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B526B77727BF40AF00CE8AC9 /* Constants.swift */; };
 		B53425B127A40F7500D3C44B /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53425B027A40F7500D3C44B /* GameObject.swift */; };
 		B53425B327A4104B00D3C44B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53425B227A4104B00D3C44B /* Player.swift */; };
 		B53425B527A4151F00D3C44B /* PlayerLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53425B427A4151F00D3C44B /* PlayerLine.swift */; };
@@ -51,10 +53,13 @@
 		7A72205527A2E1A700720C1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A72205827A2E1A700720C1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7AF637AD27B973F3006783A6 /* PauseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseViewController.swift; sourceTree = "<group>"; };
+		B526B77527BF391400CE8AC9 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		B526B77727BF40AF00CE8AC9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B53425B027A40F7500D3C44B /* GameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
 		B53425B227A4104B00D3C44B /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		B53425B427A4151F00D3C44B /* PlayerLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLine.swift; sourceTree = "<group>"; };
 		B53FB05527BB2AF1003BA867 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
+		B549629127BDE60600E6F182 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B58627A727B131E300F09ABF /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		B5BE27B927BCB81100F8EA40 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,6 +153,7 @@
 		7A72204727A2E1A500720C1F /* SuperBouncyFood */ = {
 			isa = PBXGroup;
 			children = (
+				B549629127BDE60600E6F182 /* Info.plist */,
 				7AF637AC27B973CF006783A6 /* Pause */,
 				7A1B159F27B94A9300D6F650 /* Settings */,
 				7A0475AE27B69AF4001132CD /* Extensions */,
@@ -161,6 +167,8 @@
 				7A72205527A2E1A700720C1F /* Assets.xcassets */,
 				7A72205727A2E1A700720C1F /* LaunchScreen.storyboard */,
 				B5BE27B927BCB81100F8EA40 /* GoogleService-Info.plist */,
+				B526B77527BF391400CE8AC9 /* Environment.swift */,
+				B526B77727BF40AF00CE8AC9 /* Constants.swift */,
 			);
 			path = SuperBouncyFood;
 			sourceTree = "<group>";
@@ -344,6 +352,8 @@
 				B53FB05627BB2AF1003BA867 /* Background.swift in Sources */,
 				7A587C1527AC9A650025DD6C /* Edge.swift in Sources */,
 				7A0475A727B5F7C6001132CD /* HomeViewController.swift in Sources */,
+				B526B77627BF391400CE8AC9 /* Environment.swift in Sources */,
+				B526B77827BF40AF00CE8AC9 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +506,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 5UX9P2B2T5;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SuperBouncyFood/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -526,6 +537,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 5UX9P2B2T5;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SuperBouncyFood/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

@@ -8,5 +8,6 @@ target 'SuperBouncyFood' do
   # Pods for SuperBouncyFood
   pod 'Firebase/Analytics'
 	pod 'Firebase/Crashlytics'
+  pod 'Google-Mobile-Ads-SDK'
 
 end

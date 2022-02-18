@@ -9,24 +9,23 @@ import SpriteKit
 
 class PlatformSpawner {
     
-    private var platformModel: SKSpriteNode
-    private var parent: SKNode
+    private var parent: GameScene
+    
     private var platforms = [SKSpriteNode]()
-    private var pointMarkers = [SKSpriteNode]()
+    private var platformModel: SKSpriteNode
+    
     private var player: Player
     private var gameArea: SKSpriteNode
     private var camera: SKCameraNode
+    private var ground: Ground
     
-    private var jump : CGFloat = 0
-    private var reachLimit: Bool = false
-    
-    
-    init(platformModel: SKSpriteNode, parent: SKNode, player: Player, gameArea: SKSpriteNode, camera: SKCameraNode) {
+    init(platformModel: SKSpriteNode, parent: GameScene, player: Player, gameArea: SKSpriteNode, camera: SKCameraNode, ground: Ground) {
         self.platformModel = platformModel
         self.parent = parent
         self.player = player
         self.gameArea = gameArea
         self.camera = camera
+        self.ground = ground
     }
     
     func start() {
@@ -44,7 +43,7 @@ class PlatformSpawner {
     
     func spawnPlatform() {
         let spaceBetweenPlatforms: CGFloat = platformModel.size.height * 3
-        var y: CGFloat = 370
+        var y: CGFloat = ground.node.frame.maxY + spaceBetweenPlatforms
         var isRight = true
         if let lastPlatform = platforms.last {
             y = lastPlatform.frame.maxY + spaceBetweenPlatforms
@@ -63,18 +62,18 @@ class PlatformSpawner {
         spawn(at: spawnPoint)
     }
     
-    func update(ground: SKNode, dish: SKNode, base: SKSpriteNode) {
-        updateGround(ground: ground, dish: dish, base: base)
+    func update(dish: SKNode, base: SKSpriteNode) {
+        updateGround(dish: dish, base: base)
         updatePlatforms()
     }
     
-    func updateGround(ground: SKNode, dish: SKNode, base: SKSpriteNode) {
-        if ground.parent == nil && dish.parent == nil && base.parent == nil {
+    func updateGround(dish: SKNode, base: SKSpriteNode) {
+        if ground.node.parent == nil && dish.parent == nil && base.parent == nil {
             return
         }
         // Check if ground, dish, and base is off screen
-        if ground.frame.maxY < camera.position.y - (gameArea.frame.height / 2) {
-            ground.removeFromParent()
+        if ground.node.frame.maxY < camera.position.y - (gameArea.frame.height / 2) {
+            ground.node.removeFromParent()
             dish.removeFromParent()
             base.removeFromParent()
         }
@@ -83,7 +82,7 @@ class PlatformSpawner {
     // Check if some platform is off screen
     func updatePlatforms() {
         for (i, platform) in platforms.enumerated() {
-            if platform.frame.maxY < camera.position.y - (gameArea.frame.height / 2) {
+            if parent.isOffCamera(yPosition: platform.frame.maxY) {
                 platform.removeFromParent()
                 platforms.remove(at: i)
                 spawnPlatform()

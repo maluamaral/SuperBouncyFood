@@ -42,10 +42,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hW3-jo-dns">
-                                <rect key="frame" x="344.66666666666669" y="670" width="50" height="31"/>
+                                <rect key="frame" x="286" y="670" width="108.66666666666669" height="0.0"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gg6-X4-kAf">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="14"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gg6-X4-kAf">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="0.0"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="">
                                             <color key="baseForegroundColor" name="brigadeiro"/>
@@ -54,8 +54,8 @@
                                             <action selector="sentToSettings:" destination="BV1-FR-VrT" eventType="touchUpInside" id="k5L-Wr-t3V"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opções" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIR-Fq-tsA">
-                                        <rect key="frame" x="0.0" y="14" width="50" height="17"/>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opções" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIR-Fq-tsA">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" name="brigadeiro"/>
                                         <nil key="highlightedColor"/>
@@ -63,10 +63,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BQe-1e-QZ9">
-                                <rect key="frame" x="129.66666666666666" y="669" width="168.99999999999997" height="31"/>
+                                <rect key="frame" x="188" y="669" width="52" height="31"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJK-Ze-BWf">
-                                        <rect key="frame" x="0.0" y="0.0" width="169" height="14"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="52" height="14"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="">
                                             <color key="baseForegroundColor" name="brigadeiro"/>
@@ -76,7 +76,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ranking" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xtG-mP-7HV">
-                                        <rect key="frame" x="0.0" y="14" width="169" height="17"/>
+                                        <rect key="frame" x="0.0" y="14" width="52" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" name="brigadeiro"/>
                                         <nil key="highlightedColor"/>
@@ -84,10 +84,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="54h-1v-uH0">
-                                <rect key="frame" x="33" y="669" width="50.666666666666657" height="32"/>
+                                <rect key="frame" x="33" y="669" width="109" height="32"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWI-Ce-VLU">
-                                        <rect key="frame" x="0.0" y="0.0" width="50.666666666666664" height="14"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="109" height="14"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
                                         <connections>
@@ -95,7 +95,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jogar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4z2-LG-Z1Q">
-                                        <rect key="frame" x="0.0" y="15" width="50.666666666666664" height="17"/>
+                                        <rect key="frame" x="0.0" y="15" width="109" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" name="brigadeiro"/>
                                         <nil key="highlightedColor"/>
@@ -249,10 +249,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="X5C-BQ-ITq">
-                                <rect key="frame" x="52" y="615" width="119" height="32"/>
+                                <rect key="frame" x="52" y="615" width="119" height="0.0"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LEZ-3j-GbN">
-                                        <rect key="frame" x="0.0" y="0.0" width="119" height="14"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LEZ-3j-GbN">
+                                        <rect key="frame" x="0.0" y="0.0" width="119" height="0.0"/>
                                         <color key="tintColor" name="creme"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
@@ -263,8 +263,8 @@
                                             <action selector="sentoToGameOver:" destination="BV1-FR-VrT" eventType="touchUpInside" id="13R-Oz-Gad"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Continuar jogando" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aep-S9-Qpk">
-                                        <rect key="frame" x="0.0" y="15" width="119" height="17"/>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Continuar jogando" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aep-S9-Qpk">
+                                        <rect key="frame" x="0.0" y="0.0" width="119" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" name="creme"/>
                                         <nil key="highlightedColor"/>
@@ -513,23 +513,23 @@
                                     <action selector="goBackToGame:" destination="La9-4n-aFk" eventType="touchUpInside" id="N6R-3y-nLw"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Música" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0e2-jp-Cje">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Música" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0e2-jp-Cje">
                                 <rect key="frame" x="86" y="292" width="77" height="28.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                 <color key="textColor" name="creme"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="tiE-Ag-Gnq">
+                            <slider hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="tiE-Ag-Gnq">
                                 <rect key="frame" x="84" y="327.66666666666669" width="260" height="31"/>
                                 <color key="minimumTrackTintColor" name="coxinha"/>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Efeitos sonoros" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABk-Pl-9HJ">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Efeitos sonoros" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABk-Pl-9HJ">
                                 <rect key="frame" x="86" y="395.66666666666669" width="163" height="28.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                 <color key="textColor" name="creme"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="K9d-KG-1Qf">
+                            <slider hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="K9d-KG-1Qf">
                                 <rect key="frame" x="84" y="431.66666666666669" width="260" height="31"/>
                                 <color key="minimumTrackTintColor" name="coxinha"/>
                             </slider>
@@ -584,7 +584,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vjL-vY-P1v">
                                 <rect key="frame" x="20" y="49" width="393" height="36"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleAspectFit" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="m89-s3-bXx">
+                                    <stackView opaque="NO" contentMode="scaleAspectFit" alignment="firstBaseline" translatesAutoresizingMaskIntoConstraints="NO" id="m89-s3-bXx">
                                         <rect key="frame" x="0.0" y="0.0" width="137.33333333333334" height="36"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="000000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7a-0Y-nad" userLabel="score">
@@ -594,7 +594,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6o-v5-nkd" userLabel="measure">
-                                                <rect key="frame" x="120.66666666666667" y="12" width="16.666666666666671" height="24"/>
+                                                <rect key="frame" x="120.66666666666667" y="9.6666666666666643" width="16.666666666666671" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" name="preto"/>
                                                 <nil key="highlightedColor"/>
@@ -612,17 +612,28 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9yO-Dm-7fJ" customClass="GADBannerView">
+                                <rect key="frame" x="20" y="834" width="388" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="8II-o8-7Qb"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qo5-BV-3Iv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="tintColor" name="preto"/>
                         <constraints>
+                            <constraint firstItem="qo5-BV-3Iv" firstAttribute="bottom" secondItem="9yO-Dm-7fJ" secondAttribute="bottom" constant="8" id="2a8-qx-Mms"/>
+                            <constraint firstItem="9yO-Dm-7fJ" firstAttribute="leading" secondItem="qo5-BV-3Iv" secondAttribute="leading" constant="20" id="6RU-Zh-CDS"/>
                             <constraint firstItem="vjL-vY-P1v" firstAttribute="leading" secondItem="qo5-BV-3Iv" secondAttribute="leading" constant="20" id="aHQ-gu-SFV"/>
                             <constraint firstItem="qo5-BV-3Iv" firstAttribute="trailing" secondItem="vjL-vY-P1v" secondAttribute="trailing" constant="15" id="gv1-u3-LE3"/>
                             <constraint firstItem="vjL-vY-P1v" firstAttribute="top" secondItem="qo5-BV-3Iv" secondAttribute="top" constant="5" id="qCH-dI-dZb"/>
+                            <constraint firstItem="qo5-BV-3Iv" firstAttribute="trailing" secondItem="9yO-Dm-7fJ" secondAttribute="trailing" constant="20" id="rEh-tk-rAv"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bannerView" destination="9yO-Dm-7fJ" id="wLW-3g-qCT"/>
                         <outlet property="measureLabel" destination="O6o-v5-nkd" id="ES2-oj-6Hh"/>
                         <outlet property="pauseButton" destination="9hc-7N-x2z" id="HmX-kw-JPK"/>
                         <outlet property="scoreLabel" destination="w7a-0Y-nad" id="lL7-Yv-uoI"/>
@@ -664,6 +675,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

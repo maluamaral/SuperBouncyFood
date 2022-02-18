@@ -25,6 +25,8 @@ class HomeViewController: UIViewController, GKGameCenterControllerDelegate {
         playButton.setupButton(iconString: "play", color: UIColor.init(named: "brigadeiro")!)
         rankingButton.setupButton(iconString: "crown", color: UIColor.init(named: "brigadeiro")!)
         settingsButton.setupButton(iconString: "gearshape", color: UIColor.init(named: "brigadeiro")!)
+        
+        settingsButton.isHidden = true
     }
     
     func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {

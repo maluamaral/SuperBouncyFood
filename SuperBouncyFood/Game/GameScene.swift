@@ -79,7 +79,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let platformNode = childNode(withName: "platform") as? SKSpriteNode
         platformNode!.name = "plataform"
         
-        spawner = PlatformSpawner(platformModel: platformNode!, parent: self, player: player,gameArea: gameArea, camera: cam)
+        spawner = PlatformSpawner(platformModel: platformNode!, parent: self, player: player,gameArea: gameArea, camera: cam, ground: ground)
         
         // Edges setup
         let leftEdgeNode = childNode(withName: "leftEdge")!
@@ -158,16 +158,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         checkPlayerPosition()
-        spawner.update(ground: ground.node, dish: dish, base: base.node)
+        spawner.update(dish: dish, base: base.node)
         player.update(currentTime)
         background.update()
         edges.update()
         // Move camera
-        if player.node.position.y > topY {
-            topY = player.node.position.y
+        let playerPosition: CGFloat = player.node.position.y - (Constants.BOTTOM_SAFE_AREA - 100)
+        if playerPosition > topY {
+            topY = playerPosition
             cam.position.y = topY
         }
-        
         
         GameScene.score = (Int(player.topY) / 220) - 1
         viewController.updateScore(GameScene.score)
@@ -186,11 +186,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
                           
     func checkPlayerPosition() {
-        if player.node.frame.minY < cam.position.y - (gameArea.frame.height / 2) {
+        if self.isOffCamera(yPosition: player.node.frame.minY) {
             Analytics.logEvent("level_end", parameters: nil)
             Analytics.setUserProperty(GameScene.score.description, forName: "player_distance")
             viewController.gameOver(score: GameScene.score)
         }
+    }
+    
+    func isOffCamera(yPosition: CGFloat) -> Bool {
+        return yPosition < ((cam.position.y + Constants.BOTTOM_SAFE_AREA) - (gameArea.frame.height / 2))
     }
     
     func didBegin(_ contact: SKPhysicsContact) {

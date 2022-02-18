@@ -9,10 +9,17 @@ import UIKit
 import SpriteKit
 import GameplayKit
 import GameKit
+import GoogleMobileAds
 
-class GameViewController: UIViewController, GKGameCenterControllerDelegate {
+class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADFullScreenContentDelegate {
     var gcDefaultLeaderBoard: String = ""
     var isDisplayingGameOver = false
+    
+    @IBOutlet weak var bannerView: GADBannerView!
+    
+    private var interstitial: GADInterstitialAd?
+    
+    private var currentScore: Int = 0
     
     @IBOutlet private weak var scoreLabel: UILabel!
     @IBOutlet private weak var measureLabel: UILabel!
@@ -33,7 +40,7 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate {
             return .all
         }
     }
-
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -42,6 +49,77 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate {
         super.viewDidLoad()
         self.setupView()
         self.start()
+        
+        loadBannerAd()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        requestBannerAd()
+        requestInterstitial()
+    }
+    
+    override func viewWillTransition(
+        to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator
+      ) {
+        coordinator.animate(alongsideTransition: { _ in
+          self.requestBannerAd()
+        })
+      }
+    
+    func loadBannerAd() {
+        bannerView.adUnitID = Environment.BANNER_AD_HOME
+        bannerView.rootViewController = self
+    }
+    
+    func requestBannerAd() {
+        let frame = { () -> CGRect in
+            if #available(iOS 11.0, *) {
+                return view.frame.inset(by: view.safeAreaInsets)
+            } else {
+                return view.frame
+            }
+        }()
+        let viewWidth = frame.size.width
+        
+        bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth)
+        bannerView.load(GADRequest())
+    }
+    
+    func requestInterstitial() {
+        let request = GADRequest()
+        GADInterstitialAd.load(
+            withAdUnitID: Environment.INTERSTITIAL_AD_GAME_OVER,
+            request: request,
+            completionHandler: { [self] ad, error in
+                if let error = error {
+                    print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+                    return
+                }
+                interstitial = ad
+                interstitial?.fullScreenContentDelegate = self
+            }
+        )
+    }
+    
+    /// Tells the delegate that the ad failed to present full screen content.
+    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+        print("Ad did fail to present full screen content.")
+        self.continueGameOver()
+    }
+    
+    /// Tells the delegate that the ad presented full screen content.
+    func adDidPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        print("Ad did present full screen content.")
+        // TODO: Pausar musicas, sons e etc
+    }
+    
+    /// Tells the delegate that the ad dismissed full screen content.
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        print("Ad did dismiss full screen content.")
+        self.requestInterstitial()
+        self.continueGameOver()
     }
     
     func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
@@ -67,15 +145,15 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate {
                 // Set the scale mode to scale to fit the window
                 scene.scaleMode = .aspectFill
                 scene.viewController = self
-               
+                
                 // Present the scene
                 view.presentScene(scene)
             }
             
             view.ignoresSiblingOrder = true
             
-            view.showsFPS = true
-            view.showsNodeCount = true
+            view.showsFPS = Environment.SHOW_FPS_AND_NODES
+            view.showsNodeCount = Environment.SHOW_FPS_AND_NODES
         }
     }
     
@@ -102,10 +180,17 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate {
             return
         }
         
+        self.currentScore = score
+        isDisplayingGameOver = true
+        
+        showInterstitialAd()
+    }
+    
+    func continueGameOver() {
         // Update score
         if (GKLocalPlayer.local.isAuthenticated) {
             GKLeaderboard.submitScore(
-                score,
+                self.currentScore,
                 context: 0,
                 player: GKLocalPlayer.local,
                 leaderboardIDs: [self.gcDefaultLeaderBoard]
@@ -119,11 +204,29 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate {
         let newViewController = storyboard?.instantiateViewController(withIdentifier: "gameOver") as! GameOverViewController
         newViewController.modalPresentationStyle = .custom
         newViewController.gameViewController = self
-        newViewController.currentScore = score
+        newViewController.currentScore = self.currentScore
         newViewController.gcDefaultLeaderBoard = gcDefaultLeaderBoard
         
-        isDisplayingGameOver = true
         self.present(newViewController, animated: true, completion: nil)
+    }
+    
+    func showInterstitialAd() {
+        guard let interstitial = interstitial else {
+            print("Ad wasn't ready")
+            return
+        }
+        
+        interstitial.present(fromRootViewController: self)
+    }
+    
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        let constraints = [
+            bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            bannerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 20.0)
+        ]
+        view.addSubview(bannerView)
+        view.addConstraints(constraints)
     }
 }
 
