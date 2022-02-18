@@ -7,6 +7,8 @@
 
 import UIKit
 import GameKit
+import AppTrackingTransparency
+import AdSupport
 
 class HomeViewController: UIViewController, GKGameCenterControllerDelegate {
     @IBOutlet private weak var settingsButton: UIButton!
@@ -19,6 +21,10 @@ class HomeViewController: UIViewController, GKGameCenterControllerDelegate {
         super.viewDidLoad()
         self.authenticateLocalPlayer()
         self.setupView()
+        
+        ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
+            print("status - \(status)")
+        })
     }
     
     private func setupView() {
