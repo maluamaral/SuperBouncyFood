@@ -9,6 +9,8 @@ import UIKit
 import Firebase
 import AdSupport
 import AppTrackingTransparency
+import FBSDKCoreKit
+import FirebaseCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,17 +19,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Configure Firebase
         FirebaseApp.configure()
-        if #available(iOS 14, *) {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
-                
-                ATTrackingManager.requestTrackingAuthorization { status in
-                    print(status)
-                }
-            })
-        }
+        
+        // Ask tracking
+        self.requestDataPermission()
+        
+        ApplicationDelegate.shared.application(
+            application,
+            didFinishLaunchingWithOptions: launchOptions)
         
         return true
+    }
+    
+    func requestDataPermission() {
+        if #available(iOS 14, *) {
+            if ATTrackingManager.trackingAuthorizationStatus == .authorized {
+                self.setTracking(true)
+            } else if ATTrackingManager.trackingAuthorizationStatus == .denied || ATTrackingManager.trackingAuthorizationStatus == .restricted {
+                self.setTracking(false)
+            } else if ATTrackingManager.trackingAuthorizationStatus == .notDetermined {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                    ATTrackingManager.requestTrackingAuthorization { status in
+                        if status == .authorized {
+                            self.setTracking(true)
+                        } else {
+                            self.setTracking(false)
+                        }
+                    }
+                })
+            }
+        }
+    }
+    
+    func setTracking(_ tracking: Bool) {
+        Analytics.setUserProperty("\(tracking)".lowercased(),
+                                  forName: AnalyticsUserPropertyAllowAdPersonalizationSignals)
+        Analytics.setAnalyticsCollectionEnabled(tracking)
+        // Facebook ads
+        Settings.shared.isAdvertiserTrackingEnabled = tracking
+        Settings.shared.isAutoLogAppEventsEnabled = tracking
+        Settings.shared.isAdvertiserIDCollectionEnabled = tracking
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -47,5 +80,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
     
+    func application(
+        _ app: UIApplication,
+        open url: URL,
+        options: [UIApplication.OpenURLOptionsKey : Any] = [:]
+    ) -> Bool {
+        ApplicationDelegate.shared.application(
+            app,
+            open: url,
+            sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+            annotation: options[UIApplication.OpenURLOptionsKey.annotation]
+        )
+    }
 }
 
