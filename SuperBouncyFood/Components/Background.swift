@@ -8,7 +8,7 @@
 import SpriteKit
 
 class Background {
-    private var node: SKNode
+    private var gameScene: GameScene
     private var background: SKSpriteNode!
     private var backgroundReverse: SKSpriteNode!
     
@@ -17,8 +17,8 @@ class Background {
     
     private var isShowingPrimaryBackground = true
     
-    init(node: SKNode, gameArea: SKSpriteNode, camera: SKCameraNode) {
-        self.node = node
+    init(gameScene: GameScene, gameArea: SKSpriteNode, camera: SKCameraNode) {
+        self.gameScene = gameScene
         self.gameArea = gameArea
         self.camera = camera
         
@@ -26,8 +26,8 @@ class Background {
     }
     
     func start() {
-        background = node.childNode(withName: "background") as? SKSpriteNode
-        backgroundReverse = node.childNode(withName: "backgroundReverse") as? SKSpriteNode
+        background = gameScene.childNode(withName: "background") as? SKSpriteNode
+        backgroundReverse = gameScene.childNode(withName: "backgroundReverse") as? SKSpriteNode
         // update position
         background.position.y = camera.position.y
         backgroundReverse.position.y = background.frame.maxY + background.frame.midY
@@ -36,13 +36,12 @@ class Background {
     
     func update() {
         if isShowingPrimaryBackground && background.frame.maxY < camera.position.y - (gameArea.frame.height / 2) {
-            background.position.y = backgroundReverse.frame.maxY
+            background.position.y = backgroundReverse.position.y + backgroundReverse.frame.height
             isShowingPrimaryBackground = false
         } else if !isShowingPrimaryBackground && backgroundReverse.frame.maxY < camera.position.y - (gameArea.frame.height / 2) {
-            backgroundReverse.position.y = background.frame.maxY
+            backgroundReverse.position.y = background.position.y + background.frame.height
             isShowingPrimaryBackground = true
         }
     }
-    
 }
 

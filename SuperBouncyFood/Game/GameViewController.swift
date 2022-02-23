@@ -14,12 +14,15 @@ import GoogleMobileAds
 class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADFullScreenContentDelegate {
     var gcDefaultLeaderBoard: String = ""
     var isDisplayingGameOver = false
+    var isTryingAgain = false
+    var firstPlatformPosition: SKNode?
     
     @IBOutlet weak var bannerView: GADBannerView!
-    
     private var interstitial: GADInterstitialAd?
     
     private var currentScore: Int = 0
+    
+    private var gameScene: GameScene?
     
     @IBOutlet private weak var scoreLabel: UILabel!
     @IBOutlet private weak var measureLabel: UILabel!
@@ -62,11 +65,11 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADF
     
     override func viewWillTransition(
         to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator
-      ) {
+    ) {
         coordinator.animate(alongsideTransition: { _ in
-          self.requestBannerAd()
+            self.requestBannerAd()
         })
-      }
+    }
     
     func loadBannerAd() {
         bannerView.adUnitID = Environment.BANNER_AD_HOME
@@ -85,6 +88,7 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADF
         
         bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth)
         bannerView.load(GADRequest())
+        bannerView.backgroundColor = .black
     }
     
     func requestInterstitial() {
@@ -137,6 +141,8 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADF
     }
     
     func start() {
+        self.isTryingAgain = false
+        self.isDisplayingGameOver = false
         self.scoreLabel.text = String(format: "%05d", 0)
         
         if let view = self.view as! SKView? {
@@ -145,6 +151,7 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADF
                 // Set the scale mode to scale to fit the window
                 scene.scaleMode = .aspectFill
                 scene.viewController = self
+                self.gameScene = scene
                 
                 // Present the scene
                 view.presentScene(scene)
@@ -155,6 +162,16 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADF
             view.showsFPS = Environment.SHOW_FPS_AND_NODES
             view.showsNodeCount = Environment.SHOW_FPS_AND_NODES
         }
+    }
+    
+    func continueGame() {
+        guard let firstPlatformPosition = self.firstPlatformPosition else {
+            return
+        }
+        
+        isDisplayingGameOver = false
+        isTryingAgain = true
+        gameScene?.updatePlayerPosition(position: CGPoint(x: firstPlatformPosition.position.x + 5.0, y: firstPlatformPosition.frame.maxY + 5.0))
     }
     
     @IBAction func leaderBoardClicked(_ sender: Any) {
@@ -213,6 +230,7 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADF
     func showInterstitialAd() {
         guard let interstitial = interstitial else {
             print("Ad wasn't ready")
+            continueGameOver()
             return
         }
         

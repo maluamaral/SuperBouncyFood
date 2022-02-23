@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Csa-HD-Q3a">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -249,10 +249,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="X5C-BQ-ITq">
-                                <rect key="frame" x="52" y="615" width="119" height="0.0"/>
+                                <rect key="frame" x="52" y="615" width="119" height="32"/>
                                 <subviews>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LEZ-3j-GbN">
-                                        <rect key="frame" x="0.0" y="0.0" width="119" height="0.0"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LEZ-3j-GbN">
+                                        <rect key="frame" x="0.0" y="0.0" width="119" height="14"/>
                                         <color key="tintColor" name="creme"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
@@ -260,11 +260,10 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="seeAd:" destination="mL3-Wx-04a" eventType="touchUpInside" id="h8d-Nd-QGr"/>
-                                            <action selector="sentoToGameOver:" destination="BV1-FR-VrT" eventType="touchUpInside" id="13R-Oz-Gad"/>
                                         </connections>
                                     </button>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Continuar jogando" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aep-S9-Qpk">
-                                        <rect key="frame" x="0.0" y="0.0" width="119" height="0.0"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Continuar jogando" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aep-S9-Qpk">
+                                        <rect key="frame" x="0.0" y="15" width="119" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" name="creme"/>
                                         <nil key="highlightedColor"/>
@@ -302,6 +301,7 @@
                     <navigationItem key="navigationItem" id="qRK-5A-3Bl"/>
                     <connections>
                         <outlet property="continuePlayButton" destination="LEZ-3j-GbN" id="HOi-vT-ZDK"/>
+                        <outlet property="continuePlayLabel" destination="aep-S9-Qpk" id="7XU-iX-ehB"/>
                         <outlet property="currentScoreLabel" destination="6Nk-y2-eYG" id="qbu-ee-UUv"/>
                         <outlet property="rankingButton" destination="ann-uK-b1C" id="iPf-MG-fEv"/>
                         <outlet property="recordLabel" destination="Yfn-2E-RAZ" id="2xl-LY-iIU"/>

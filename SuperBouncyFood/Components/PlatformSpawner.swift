@@ -39,6 +39,8 @@ class PlatformSpawner {
         for _ in 0...Int(frameSize / spaceBetweenPlatforms) {
             spawnPlatform()
         }
+        
+        parent.viewController.firstPlatformPosition = platforms.first
     }
     
     func spawnPlatform() {
@@ -65,6 +67,8 @@ class PlatformSpawner {
     func update(dish: SKNode, base: SKSpriteNode) {
         updateGround(dish: dish, base: base)
         updatePlatforms()
+        
+        parent.viewController.firstPlatformPosition = platforms.first
     }
     
     func updateGround(dish: SKNode, base: SKSpriteNode) {

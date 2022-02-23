@@ -91,8 +91,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         edges = Edge(edges: [leftEdgeNode, rightEdgeNode], camera: cam)
         
         // Background setup
-        let backgroundNode = childNode(withName: "backgrounds")!
-        background = Background(node: backgroundNode, gameArea: gameArea, camera: cam)
+        background = Background(gameScene: self, gameArea: gameArea, camera: cam)
         
         start()
     }
@@ -204,6 +203,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         Analytics.logEvent("level_reset", parameters: nil)
         
         GameScene.score = 0
+    }
+    
+    func updatePlayerPosition(position: CGPoint) {
+        self.player.node.position = position
     }
 }
 
