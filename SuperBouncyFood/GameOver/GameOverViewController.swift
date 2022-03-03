@@ -16,6 +16,7 @@ class GameOverViewController: UIViewController, GKGameCenterControllerDelegate, 
     var rewardedAd: GADRewardedAd?
     var watchedRewardComplete = false
 
+    @IBOutlet private weak var gameOverLabel: UILabel!
     @IBOutlet private weak var restartButton: UIButton!
     @IBOutlet private weak var continuePlayButton: UIButton!
     @IBOutlet private weak var continuePlayLabel: UILabel!
@@ -31,6 +32,9 @@ class GameOverViewController: UIViewController, GKGameCenterControllerDelegate, 
     }
     
     private func setupView() {
+        gameOverLabel.setLineSpacing(lineSpacing: 1, lineHeightMultiple: 0.8)
+        gameOverLabel.textAlignment = .center
+        
         continuePlayButton.setupButton(iconString: "film", color: UIColor.init(named: "creme")!)
         rankingButton.setupButton(iconString: "crown", color: UIColor.init(named: "creme")!)
         restartButton.setupButton(iconString: "arrow.clockwise", color: UIColor.init(named: "creme")!)

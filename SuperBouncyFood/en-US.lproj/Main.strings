@@ -51,7 +51,7 @@
 "O6o-v5-nkd.text" = "m";
 
 /* Class = "UILabel"; text = "High score"; ObjectID = "RPk-z1-eZv"; */
-"RPk-z1-eZv.text" = "High score";
+"RPk-z1-eZv.text" = "Highest";
 
 /* Class = "UILabel"; text = "Score"; ObjectID = "Y8j-3R-RJc"; */
 "Y8j-3R-RJc.text" = "Score";
@@ -63,7 +63,7 @@
 "YrF-XS-yxG.normalTitle" = "Button";
 
 /* Class = "UILabel"; text = "Keep playing"; ObjectID = "aep-S9-Qpk"; */
-"aep-S9-Qpk.text" = "Keep playing";
+"aep-S9-Qpk.text" = "Continue";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ann-uK-b1C"; */
 "ann-uK-b1C.normalTitle" = "Button";
@@ -71,17 +71,23 @@
 /* Class = "UILabel"; text = "Music"; ObjectID = "brV-cA-fc2"; */
 "brV-cA-fc2.text" = "Music";
 
+/* Class = "UILabel"; text = "Music"; ObjectID = "jAD-2m-c9f"; */
+"jAD-2m-c9f.text" = "Music";
+
+/* Class = "UILabel"; text = "Sound effects"; ObjectID = "xso-if-YNJ"; */
+"xso-if-YNJ.text" = "Sound effects";
+
 /* Class = "UIButton"; configuration.title = "Home"; ObjectID = "dbe-Gz-zEa"; */
 "dbe-Gz-zEa.configuration.title" = "Home";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "dbe-Gz-zEa"; */
-"dbe-Gz-zEa.normalTitle" = "Button";
+"dbe-Gz-zEa.normalTitle" = "Home";
 
 /* Class = "UILabel"; text = "Sound effects"; ObjectID = "ebz-2b-chT"; */
 "ebz-2b-chT.text" = "Sound effects";
 
 /* Class = "UILabel"; text = "Opções"; ObjectID = "fIR-Fq-tsA"; */
-"fIR-Fq-tsA.text" = "Opções";
+"fIR-Fq-tsA.text" = "Options";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "oJK-Ze-BWf"; */
 "oJK-Ze-BWf.normalTitle" = "Button";

@@ -10,16 +10,14 @@ import FirebaseAnalytics
 
 class Player: GameObject {
     var isMoving: Bool = false
-    var isFalling: Bool = false
-    var isJumping: Bool = false
     var topY: CGFloat = 0
     
     func jump(lineScale: CGFloat, lineRotation: CGFloat) {
-        let yImpulse = lineScale * 350.0
-        let xImpulse = -lineRotation * 350.0
+        let yImpulse = cos(lineRotation) * pow(lineScale, 0.5) * 1000.0
+        let xImpulse = sin(lineRotation) * pow(lineScale, 0.5) * -1000.0
         
         let impulse = CGVector(dx: xImpulse, dy: yImpulse)
-        node.physicsBody?.applyImpulse(impulse)
+        node.physicsBody?.velocity = impulse
         
         Analytics.logEvent("player_jump", parameters: [
             "impulse_y": yImpulse as NSNumber,
@@ -31,6 +29,7 @@ class Player: GameObject {
         node.physicsBody?.isDynamic = true
         node.physicsBody?.affectedByGravity = true
         node.physicsBody?.mass = 0.35
+        node.physicsBody?.friction = 0.1
         node.name = "player"
         
         topY = node.position.y
@@ -42,28 +41,16 @@ class Player: GameObject {
         }
         
         if let playerPB = node.physicsBody {
-            // Check if is jumping
-            if playerPB.velocity.dy > 0 {
-                isJumping = true
-            } else {
-                isJumping = false
-            }
-            // Check if is falling
-            if playerPB.velocity.dy < 0 {
-                isFalling = true
-            } else {
-                isFalling = false
-            }
             // Check if is moving
-            if isJumping || isFalling {
+            if playerPB.velocity.dy > CGFLOAT_EPSILON {
                 isMoving = true
-            } else {
+            } else if playerPB.velocity.dy < -CGFLOAT_EPSILON {
+                isMoving = true
+            } else  {
                 isMoving = false
             }
         } else {
             isMoving = false
-            isFalling = false
-            isJumping = false
         }
         // Change player animation
         if (self.node.physicsBody?.velocity.dy)! < 0 {

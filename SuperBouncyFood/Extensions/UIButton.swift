@@ -18,4 +18,17 @@ extension UIButton{
         self.tintColor = color
     }
     
+    @IBInspectable var adjustFontSizeToWidth: Bool {
+            get {
+                return self.titleLabel?.adjustsFontSizeToFitWidth ?? false
+            }
+            set {
+                self.titleLabel?.numberOfLines = 1
+                self.titleLabel?.adjustsFontSizeToFitWidth = newValue;
+                self.titleLabel?.lineBreakMode = .byClipping;
+                self.titleLabel?.baselineAdjustment = .alignCenters
+                self.titleLabel?.minimumScaleFactor = 0.5
+            }
+        }
+    
 }

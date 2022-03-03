@@ -10,11 +10,17 @@ import UIKit
 class PauseViewController: UIViewController {
     var gameViewController: GameViewController?
     
+    @IBOutlet private weak var homeButton: UIButton!
     @IBOutlet private weak var restartButton: UIButton!
     @IBOutlet private weak var playButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        homeButton.titleLabel?.numberOfLines = 1
+        homeButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        homeButton.titleLabel!.baselineAdjustment = .alignCenters
+        homeButton.titleLabel?.lineBreakMode = .byClipping
+
 
         playButton.setupButton(iconString: "play", color: UIColor.init(named: "creme")!)
         restartButton.setupButton(iconString: "arrow.clockwise", color: UIColor.init(named: "creme")!)
