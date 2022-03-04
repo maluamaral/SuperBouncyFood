@@ -17,6 +17,10 @@ class HomeViewController: UIViewController, GKGameCenterControllerDelegate {
     
     var gcDefaultLeaderBoard = "General" // Check the default leaderboardID
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.authenticateLocalPlayer()

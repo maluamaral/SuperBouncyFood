@@ -1,111 +1,111 @@
 
 /* Class = "UILabel"; text = "Language"; ObjectID = "2Pt-eP-mno"; */
-"2Pt-eP-mno.text" = "Language";
+"2Pt-eP-mno.text" = "Idioma";
 
 /* Class = "UILabel"; text = "Play"; ObjectID = "3Sx-OW-Wi8"; */
-"3Sx-OW-Wi8.text" = "Play";
+"3Sx-OW-Wi8.text" = "Jugar";
 
 /* Class = "UILabel"; text = "Play"; ObjectID = "4z2-LG-Z1Q"; */
-"4z2-LG-Z1Q.text" = "Play";
+"4z2-LG-Z1Q.text" = "Jugar";
 
 /* Class = "UILabel"; text = "Restart"; ObjectID = "5uf-hY-t6m"; */
-"5uf-hY-t6m.text" = "Restart";
+"5uf-hY-t6m.text" = "Reiniciar";
 
 /* Class = "UILabel"; text = "0000m"; ObjectID = "6Nk-y2-eYG"; */
 "6Nk-y2-eYG.text" = "0000m";
 
 /* Class = "UILabel"; text = "Portuguese"; ObjectID = "7dC-JD-N2F"; */
-"7dC-JD-N2F.text" = "English";
+"7dC-JD-N2F.text" = "Español";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "9hc-7N-x2z"; */
-"9hc-7N-x2z.normalTitle" = "Button";
+"9hc-7N-x2z.normalTitle" = "Botón";
 
 /* Class = "UILabel"; text = "Game Over"; ObjectID = "ACK-sd-V7e"; */
-"ACK-sd-V7e.text" = "Game Over";
+"ACK-sd-V7e.text" = "Fin de juego";
 
 /* Class = "UILabel"; text = "Paused"; ObjectID = "Cmi-6w-Ysa"; */
-"Cmi-6w-Ysa.text" = "Paused";
+"Cmi-6w-Ysa.text" = "En pausa";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Gg6-X4-kAf"; */
-"Gg6-X4-kAf.normalTitle" = "Button";
+"Gg6-X4-kAf.normalTitle" = "Botón";
 
 /* Class = "UILabel"; text = "Ranking"; ObjectID = "HLx-OD-pR4"; */
-"HLx-OD-pR4.text" = "Ranking";
+"HLx-OD-pR4.text" = "Clasificación";
 
 /* Class = "UILabel"; text = "Tap to drag and position and release to launch"; ObjectID = "HNS-dl-BDZ"; */
-"HNS-dl-BDZ.text" = "Tap to drag and position and release to launch";
+"HNS-dl-BDZ.text" = "Toque para arrastrar y colocar y suelte para iniciar";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "LEZ-3j-GbN"; */
-"LEZ-3j-GbN.normalTitle" = "Button";
+"LEZ-3j-GbN.normalTitle" = "Botón";
 
 /* Class = "UILabel"; text = "Current"; ObjectID = "NLs-Nz-bur"; */
-"NLs-Nz-bur.text" = "Current";
+"NLs-Nz-bur.text" = "Actual";
 
 /* Class = "UILabel"; text = "m"; ObjectID = "O6o-v5-nkd"; */
 "O6o-v5-nkd.text" = "m";
 
 /* Class = "UILabel"; text = "Highest"; ObjectID = "RPk-z1-eZv"; */
-"RPk-z1-eZv.text" = "Highest";
+"RPk-z1-eZv.text" = "Mas alto";
 
 /* Class = "UILabel"; text = "Score"; ObjectID = "Y8j-3R-RJc"; */
-"Y8j-3R-RJc.text" = "Score";
+"Y8j-3R-RJc.text" = "Puntaje";
 
 /* Class = "UILabel"; text = "0000m"; ObjectID = "Yfn-2E-RAZ"; */
 "Yfn-2E-RAZ.text" = "0000m";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "YrF-XS-yxG"; */
-"YrF-XS-yxG.normalTitle" = "Button";
+"YrF-XS-yxG.normalTitle" = "Botón";
 
 /* Class = "UILabel"; text = "Continue"; ObjectID = "aep-S9-Qpk"; */
-"aep-S9-Qpk.text" = "Continue";
+"aep-S9-Qpk.text" = "Continuar";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ann-uK-b1C"; */
-"ann-uK-b1C.normalTitle" = "Button";
+"ann-uK-b1C.normalTitle" = "Botón";
 
 /* Class = "UILabel"; text = "Music"; ObjectID = "brV-cA-fc2"; */
-"brV-cA-fc2.text" = "Music";
+"brV-cA-fc2.text" = "Música";
 
 /* Class = "UIButton"; normalTitle = "Home"; ObjectID = "dbe-Gz-zEa"; */
-"dbe-Gz-zEa.normalTitle" = "Home";
+"dbe-Gz-zEa.normalTitle" = "Inicio";
 
 /* Class = "UILabel"; text = "Sound effects"; ObjectID = "ebz-2b-chT"; */
-"ebz-2b-chT.text" = "Sound effects";
+"ebz-2b-chT.text" = "Efectos de sonido";
 
 /* Class = "UILabel"; text = "Settings"; ObjectID = "fIR-Fq-tsA"; */
-"fIR-Fq-tsA.text" = "Settings";
+"fIR-Fq-tsA.text" = "Ajustes";
 
 /* Class = "UILabel"; text = "Music"; ObjectID = "jAD-2m-c9f"; */
-"jAD-2m-c9f.text" = "Music";
-
-/* Class = "UILabel"; text = "Sound effects"; ObjectID = "xso-if-YNJ"; */
-"xso-if-YNJ.text" = "Sound effects";
+"jAD-2m-c9f.text" = "Música";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "oJK-Ze-BWf"; */
-"oJK-Ze-BWf.normalTitle" = "Button";
+"oJK-Ze-BWf.normalTitle" = "Botón";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "psO-ve-qb3"; */
-"psO-ve-qb3.normalTitle" = "Button";
+"psO-ve-qb3.normalTitle" = "Botón";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "qWP-GN-P5t"; */
-"qWP-GN-P5t.normalTitle" = "Button";
+"qWP-GN-P5t.normalTitle" = "Botón";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "r63-N4-Y9X"; */
-"r63-N4-Y9X.normalTitle" = "Button";
+"r63-N4-Y9X.normalTitle" = "Botón";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "rWI-Ce-VLU"; */
-"rWI-Ce-VLU.normalTitle" = "Button";
+"rWI-Ce-VLU.normalTitle" = "Botón";
 
 /* Class = "UILabel"; text = "Options"; ObjectID = "sVo-md-5dr"; */
-"sVo-md-5dr.text" = "Options";
+"sVo-md-5dr.text" = "Ajustes";
 
 /* Class = "UILabel"; text = "000000"; ObjectID = "w7a-0Y-nad"; */
 "w7a-0Y-nad.text" = "000000";
 
 /* Class = "UILabel"; text = "Try again"; ObjectID = "wL4-fl-Sp8"; */
-"wL4-fl-Sp8.text" = "Try again";
+"wL4-fl-Sp8.text" = "Otra vez";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "wbf-lm-LKB"; */
-"wbf-lm-LKB.normalTitle" = "Button";
+"wbf-lm-LKB.normalTitle" = "Botón";
+
+/* Class = "UILabel"; text = "Sound effects"; ObjectID = "xso-if-YNJ"; */
+"xso-if-YNJ.text" = "Efectos de sonido";
 
 /* Class = "UILabel"; text = "Ranking"; ObjectID = "xtG-mP-7HV"; */
-"xtG-mP-7HV.text" = "Ranking";
+"xtG-mP-7HV.text" = "Clasificación";

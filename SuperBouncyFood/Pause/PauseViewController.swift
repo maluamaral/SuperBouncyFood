@@ -14,6 +14,10 @@ class PauseViewController: UIViewController {
     @IBOutlet private weak var restartButton: UIButton!
     @IBOutlet private weak var playButton: UIButton!
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         homeButton.titleLabel?.numberOfLines = 1

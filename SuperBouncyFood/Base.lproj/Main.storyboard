@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="La9-4n-aFk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
     <device id="ipad7_9" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -202,7 +202,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="iIi-VE-LhK" userLabel="Main Stack">
-                                <rect key="frame" x="74.5" y="34" width="595" height="793"/>
+                                <rect key="frame" x="74.5" y="54" width="595" height="793"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="settings" text="Game Over" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACK-sd-V7e">
                                         <rect key="frame" x="0.0" y="0.0" width="595" height="107.5"/>
@@ -374,7 +374,9 @@
                             <constraint firstItem="789-Ah-pYm" firstAttribute="height" secondItem="ha0-i3-Rbv" secondAttribute="height" multiplier="0.25" id="cr9-3b-9Q2"/>
                             <constraint firstItem="KwQ-Tw-CJ2" firstAttribute="width" secondItem="ha0-i3-Rbv" secondAttribute="width" id="fTr-LD-VkH"/>
                             <constraint firstItem="iIi-VE-LhK" firstAttribute="width" secondItem="ha0-i3-Rbv" secondAttribute="width" multiplier="0.8" id="iqP-Kx-auy"/>
-                            <constraint firstItem="iIi-VE-LhK" firstAttribute="top" secondItem="R6p-D5-Fqg" secondAttribute="top" constant="10" id="lid-ez-Vrn"/>
+                            <constraint firstItem="iIi-VE-LhK" firstAttribute="top" secondItem="R6p-D5-Fqg" secondAttribute="top" constant="10" id="lid-ez-Vrn">
+                                <variation key="heightClass=regular-widthClass=regular" constant="30"/>
+                            </constraint>
                             <constraint firstItem="iIi-VE-LhK" firstAttribute="centerX" secondItem="ha0-i3-Rbv" secondAttribute="centerX" id="tY7-ik-fq0"/>
                             <constraint firstItem="iIi-VE-LhK" firstAttribute="height" secondItem="ha0-i3-Rbv" secondAttribute="height" multiplier="0.7" id="zB0-Kw-Iu7"/>
                             <constraint firstAttribute="bottom" secondItem="KwQ-Tw-CJ2" secondAttribute="bottom" constant="-25" id="zRI-aa-9Nu">
@@ -833,7 +835,7 @@
         <image name="deadcoxinha" width="233" height="236"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="howPlay" width="64" height="119"/>
-        <image name="logo" width="258" height="162"/>
+        <image name="logo" width="258" height="161.5"/>
         <image name="nuvemzinha" width="390" height="63"/>
         <image name="superWave" width="543" height="243"/>
         <image name="triangule" width="178" height="169"/>

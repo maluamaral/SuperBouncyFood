@@ -24,6 +24,10 @@ class GameOverViewController: UIViewController, GKGameCenterControllerDelegate, 
     @IBOutlet private weak var recordLabel: UILabel!
     @IBOutlet private weak var currentScoreLabel: UILabel!
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupView()
@@ -32,9 +36,6 @@ class GameOverViewController: UIViewController, GKGameCenterControllerDelegate, 
     }
     
     private func setupView() {
-        gameOverLabel.setLineSpacing(lineSpacing: 1, lineHeightMultiple: 0.8)
-        gameOverLabel.textAlignment = .center
-        
         continuePlayButton.setupButton(iconString: "film", color: UIColor.init(named: "creme")!)
         rankingButton.setupButton(iconString: "crown", color: UIColor.init(named: "creme")!)
         restartButton.setupButton(iconString: "arrow.clockwise", color: UIColor.init(named: "creme")!)
@@ -88,6 +89,7 @@ class GameOverViewController: UIViewController, GKGameCenterControllerDelegate, 
     }
     
     private func loadHighestScore() {
+        self.recordLabel.text = String(format: "%05d", self.currentScore)
         GKLeaderboard.loadLeaderboards(IDs: [gcDefaultLeaderBoard]) { [weak self] (boards, error) in
             let board = boards?.first
             board?.loadEntries(for: .global, timeScope: .allTime, range: NSRange(location: 1, length: 10),

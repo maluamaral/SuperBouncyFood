@@ -23,6 +23,8 @@
 	<string>Super Bouncy Food</string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-2672712463920787~7247697376</string>
+	<key>UIStatusBarHidden</key>
+	<true/>
 	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>

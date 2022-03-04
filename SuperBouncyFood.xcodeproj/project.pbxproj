@@ -41,6 +41,8 @@
 		470CFD45411F154C9FAD2DAC /* Pods-SuperBouncyFood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperBouncyFood.release.xcconfig"; path = "Target Support Files/Pods-SuperBouncyFood/Pods-SuperBouncyFood.release.xcconfig"; sourceTree = "<group>"; };
 		554ADA6B27D103DE0012A933 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		554ADA6E27D165C70012A933 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		554ADA6F27D180F70012A933 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		554ADA7027D180FB0012A933 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		5595A09827C5E42700AF7025 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
 		5595A09927C5E42B00AF7025 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5595A09A27C5E71300AF7025 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				Base,
 				"pt-BR",
 				"en-US",
+				es,
 			);
 			mainGroup = 7A72203C27A2E1A500720C1F;
 			productRefGroup = 7A72204627A2E1A500720C1F /* Products */;
@@ -386,6 +389,7 @@
 				5595A09827C5E42700AF7025 /* pt-BR */,
 				5595A09A27C5E71300AF7025 /* en-US */,
 				554ADA6E27D165C70012A933 /* en */,
+				554ADA6F27D180F70012A933 /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -396,6 +400,7 @@
 				7A72205827A2E1A700720C1F /* Base */,
 				5595A09927C5E42B00AF7025 /* pt-BR */,
 				5595A09B27C5E71700AF7025 /* en-US */,
+				554ADA7027D180FB0012A933 /* es */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
