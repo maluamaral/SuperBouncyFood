@@ -31,7 +31,6 @@ class PlayerLine: GameObject {
     func move(atualLocation: CGPoint) {
         // Check if the player drag to a point over the caracter
         if atualLocation.y > player.node.position.y {
-            reset()
             return
         }
         // Check the angle
@@ -43,7 +42,7 @@ class PlayerLine: GameObject {
             return
         }
         // Check if the playerline was removed
-        if node.parent == nil {
+        if container.parent == nil {
             show(atualLocation: atualLocation)
         }
         
