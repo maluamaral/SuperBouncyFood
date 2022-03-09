@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		03BCADBB1B2CF0EB4B91F124 /* Pods_SuperBouncyFood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3F0AF91C90273E53691CCC /* Pods_SuperBouncyFood.framework */; };
 		554ADA6C27D103DE0012A933 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554ADA6B27D103DE0012A933 /* UILabel.swift */; };
+		5599B28A27D855C300EECE3D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5599B28C27D855C300EECE3D /* InfoPlist.strings */; };
 		7A0475A727B5F7C6001132CD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0475A627B5F7C6001132CD /* HomeViewController.swift */; };
 		7A0475AB27B6172D001132CD /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0475AA27B6172D001132CD /* GameOverViewController.swift */; };
 		7A0475B027B69B15001132CD /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0475AF27B69B15001132CD /* UIButton.swift */; };
@@ -47,6 +48,10 @@
 		5595A09927C5E42B00AF7025 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5595A09A27C5E71300AF7025 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/Main.strings"; sourceTree = "<group>"; };
 		5595A09B27C5E71700AF7025 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		5599B28B27D855C300EECE3D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5599B28D27D855C700EECE3D /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		5599B28E27D855D000EECE3D /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		5599B28F27D855D700EECE3D /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5B3F0AF91C90273E53691CCC /* Pods_SuperBouncyFood.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SuperBouncyFood.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0475A627B5F7C6001132CD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7A0475AA27B6172D001132CD /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +190,7 @@
 				B5BE27B927BCB81100F8EA40 /* GoogleService-Info.plist */,
 				B526B77527BF391400CE8AC9 /* Environment.swift */,
 				B526B77727BF40AF00CE8AC9 /* Constants.swift */,
+				5599B28C27D855C300EECE3D /* InfoPlist.strings */,
 			);
 			path = SuperBouncyFood;
 			sourceTree = "<group>";
@@ -281,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A72205427A2E1A500720C1F /* Main.storyboard in Resources */,
+				5599B28A27D855C300EECE3D /* InfoPlist.strings in Resources */,
 				7A72204B27A2E1A500720C1F /* GameScene.sks in Resources */,
 				B5BE27BA27BCB81100F8EA40 /* GoogleService-Info.plist in Resources */,
 				7A72205627A2E1A700720C1F /* Assets.xcassets in Resources */,
@@ -382,6 +389,17 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		5599B28C27D855C300EECE3D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5599B28B27D855C300EECE3D /* en */,
+				5599B28D27D855C700EECE3D /* en-US */,
+				5599B28E27D855D000EECE3D /* pt-BR */,
+				5599B28F27D855D700EECE3D /* es */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		7A72205227A2E1A500720C1F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -460,7 +478,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -516,7 +534,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -533,7 +551,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 5UX9P2B2T5;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -548,11 +566,12 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.Superbouncyfood;
 				PRODUCT_NAME = "Super Bouncy Food";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -568,7 +587,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5UX9P2B2T5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SuperBouncyFood/Info.plist;
@@ -582,11 +601,12 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.Superbouncyfood;
 				PRODUCT_NAME = SuperBouncyFood;
 				SWIFT_EMIT_LOC_STRINGS = YES;

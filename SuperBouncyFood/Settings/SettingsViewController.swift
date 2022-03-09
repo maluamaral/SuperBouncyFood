@@ -9,6 +9,8 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    @IBOutlet private weak var closeButton: UIButton!
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -16,6 +18,7 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        closeButton.removeLabel()
     }
     
     

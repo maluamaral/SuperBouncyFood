@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
     <device id="ipad7_9" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -564,6 +565,9 @@
                             </constraint>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="closeButton" destination="psO-ve-qb3" id="PgC-0X-nsr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BZt-9a-Bqc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -746,6 +750,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="closeButton" destination="wbf-lm-LKB" id="FW7-hw-tOy"/>
                         <outlet property="homeButton" destination="dbe-Gz-zEa" id="7Ks-OB-tWh"/>
                         <outlet property="playButton" destination="qWP-GN-P5t" id="JmK-JO-LeK"/>
                         <outlet property="restartButton" destination="YrF-XS-yxG" id="vXg-fX-533"/>
