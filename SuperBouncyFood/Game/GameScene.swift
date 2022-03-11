@@ -7,6 +7,7 @@
 
 import SpriteKit
 import GameplayKit
+import AVFoundation
 import FirebaseAnalytics
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
@@ -35,6 +36,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var finalPosition: CGPoint?
     private var jumpCounter: Float = 0
     static var score: Int = 0
+    
+    private var fryingPanSound = Sound(name: "fryingPan", format: ".mp3", isMusic: false)
+    private var jumpSound =   Sound(name: "jump", format: ".wav", isMusic: false)
+    private var holdingSound = Sound(name: "holding", format: ".wav", isMusic: false)
+    private var dropSound = Sound(name: "drop", format: ".mp3",isMusic: false)
+    var dieSound = Sound(name: "die", format: ".mp3", isMusic: false)
     
     override func didMove(to view: SKView) {
         self.reset()
@@ -127,6 +134,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
             }
         }
+        //checkTopFryingPan()
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -134,6 +142,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             for touch in (touches) {
                 let location = touch.location(in: self)
                 
+                holdingSound.playSound()
                 playerline.move(atualLocation: location)
             }
         }
@@ -143,13 +152,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if !playerline.isMoving {
             return
         }
-        
+        holdingSound.stopSound()
+        dropSound.playSound()
         for touch in (touches) {
             let location = touch.location(in: self)
             self.finalPosition = location
             player.jump(lineScale: playerline.node.yScale, lineRotation: playerLineContainer.zRotation)
             player.animationSetup(state: .movement)
+            jumpSound.playSound()
+            jumpSound.setVolume(volume: 1.5)
         }
+        
         
         playerline.isMoving = false
         playerline.reset()
@@ -208,6 +221,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func updatePlayerPosition(position: CGPoint) {
         self.player.node.position = position
     }
+    
+//    func checkTopFryingPan(){
+//        if !player.isMoving{
+//            fryingPanSound.playSound()
+//
+//        }
+//        fryingPanSound.stopSound()
+//    }
+
 }
 
 enum TouchObject {

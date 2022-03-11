@@ -12,6 +12,10 @@
 		7A0475A727B5F7C6001132CD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0475A627B5F7C6001132CD /* HomeViewController.swift */; };
 		7A0475AB27B6172D001132CD /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0475AA27B6172D001132CD /* GameOverViewController.swift */; };
 		7A0475B027B69B15001132CD /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0475AF27B69B15001132CD /* UIButton.swift */; };
+		7A06C7BF27D9A30A00082992 /* VolumeSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A06C7BE27D9A30A00082992 /* VolumeSwitch.swift */; };
+		7A06C7C527DAF14500082992 /* ListOfSounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A06C7C427DAF14500082992 /* ListOfSounds.swift */; };
+		7A06C7C727DBDE9D00082992 /* drop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7A06C7C627DBDE9D00082992 /* drop.mp3 */; };
+		7A06C7CB27DBDFAB00082992 /* holding.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7A06C7CA27DBDFAB00082992 /* holding.wav */; };
 		7A1B15A127B94AC300D6F650 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1B15A027B94AC300D6F650 /* SettingsViewController.swift */; };
 		7A587C1127A96A230025DD6C /* PlatformSpawner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A587C1027A96A230025DD6C /* PlatformSpawner.swift */; };
 		7A587C1327AB43560025DD6C /* Ground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A587C1227AB43560025DD6C /* Ground.swift */; };
@@ -23,7 +27,15 @@
 		7A72205427A2E1A500720C1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A72205227A2E1A500720C1F /* Main.storyboard */; };
 		7A72205627A2E1A700720C1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A72205527A2E1A700720C1F /* Assets.xcassets */; };
 		7A72205927A2E1A700720C1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A72205727A2E1A700720C1F /* LaunchScreen.storyboard */; };
+		7A79DBB527D5072F00ABDED0 /* principalMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7A79DBB427D5072F00ABDED0 /* principalMusic.mp3 */; };
+		7A79DBB727D512C600ABDED0 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A79DBB627D512C600ABDED0 /* Sound.swift */; };
+		7A79DBC427D59C0300ABDED0 /* jump.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7A79DBC227D59C0000ABDED0 /* jump.wav */; };
+		7A79DBC527D59C0300ABDED0 /* fryingPan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7A79DBC327D59C0300ABDED0 /* fryingPan.mp3 */; };
+		7A79DBCD27D6434600ABDED0 /* die.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7A79DBCC27D6434600ABDED0 /* die.mp3 */; };
+		7A79DBCF27D846CC00ABDED0 /* homeMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7A79DBCE27D846CC00ABDED0 /* homeMusic.mp3 */; };
+		7A79DBD327D84B3200ABDED0 /* VolumeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A79DBD227D84B3200ABDED0 /* VolumeSlider.swift */; };
 		7AF637AE27B973F3006783A6 /* PauseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF637AD27B973F3006783A6 /* PauseViewController.swift */; };
+		7AFDB63C27D951E6004F824B /* gameOverMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7AFDB63B27D951E6004F824B /* gameOverMusic.mp3 */; };
 		B52494D127C024E800E29FBF /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52494D027C024E800E29FBF /* AdSupport.framework */; };
 		B52494D327C024F900E29FBF /* AppTrackingTransparency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52494D227C024F900E29FBF /* AppTrackingTransparency.framework */; };
 		B526B77627BF391400CE8AC9 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B526B77527BF391400CE8AC9 /* Environment.swift */; };
@@ -51,6 +63,10 @@
 		7A0475A627B5F7C6001132CD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7A0475AA27B6172D001132CD /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 		7A0475AF27B69B15001132CD /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		7A06C7BE27D9A30A00082992 /* VolumeSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeSwitch.swift; sourceTree = "<group>"; };
+		7A06C7C427DAF14500082992 /* ListOfSounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfSounds.swift; sourceTree = "<group>"; };
+		7A06C7C627DBDE9D00082992 /* drop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = drop.mp3; sourceTree = "<group>"; };
+		7A06C7CA27DBDFAB00082992 /* holding.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = holding.wav; sourceTree = "<group>"; };
 		7A1B15A027B94AC300D6F650 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7A587C1027A96A230025DD6C /* PlatformSpawner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformSpawner.swift; sourceTree = "<group>"; };
 		7A587C1227AB43560025DD6C /* Ground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ground.swift; sourceTree = "<group>"; };
@@ -63,7 +79,15 @@
 		7A72205327A2E1A500720C1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7A72205527A2E1A700720C1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A72205827A2E1A700720C1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7A79DBB427D5072F00ABDED0 /* principalMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = principalMusic.mp3; sourceTree = "<group>"; };
+		7A79DBB627D512C600ABDED0 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		7A79DBC227D59C0000ABDED0 /* jump.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jump.wav; sourceTree = "<group>"; };
+		7A79DBC327D59C0300ABDED0 /* fryingPan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fryingPan.mp3; sourceTree = "<group>"; };
+		7A79DBCC27D6434600ABDED0 /* die.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = die.mp3; sourceTree = "<group>"; };
+		7A79DBCE27D846CC00ABDED0 /* homeMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = homeMusic.mp3; sourceTree = "<group>"; };
+		7A79DBD227D84B3200ABDED0 /* VolumeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeSlider.swift; sourceTree = "<group>"; };
 		7AF637AD27B973F3006783A6 /* PauseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseViewController.swift; sourceTree = "<group>"; };
+		7AFDB63B27D951E6004F824B /* gameOverMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameOverMusic.mp3; sourceTree = "<group>"; };
 		B52494D027C024E800E29FBF /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		B52494D227C024F900E29FBF /* AppTrackingTransparency.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppTrackingTransparency.framework; path = System/Library/Frameworks/AppTrackingTransparency.framework; sourceTree = SDKROOT; };
 		B526B77527BF391400CE8AC9 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
@@ -118,6 +142,10 @@
 				7A587C1427AC9A650025DD6C /* Edge.swift */,
 				B58627A727B131E300F09ABF /* Base.swift */,
 				B53FB05527BB2AF1003BA867 /* Background.swift */,
+				7A79DBD227D84B3200ABDED0 /* VolumeSlider.swift */,
+				7A06C7BE27D9A30A00082992 /* VolumeSwitch.swift */,
+				7A79DBB627D512C600ABDED0 /* Sound.swift */,
+				7A06C7C427DAF14500082992 /* ListOfSounds.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -169,6 +197,7 @@
 		7A72204727A2E1A500720C1F /* SuperBouncyFood */ = {
 			isa = PBXGroup;
 			children = (
+				7A79DBB327D506A800ABDED0 /* Sounds */,
 				B549629127BDE60600E6F182 /* Info.plist */,
 				7AF637AC27B973CF006783A6 /* Pause */,
 				7A1B159F27B94A9300D6F650 /* Settings */,
@@ -187,6 +216,21 @@
 				B526B77727BF40AF00CE8AC9 /* Constants.swift */,
 			);
 			path = SuperBouncyFood;
+			sourceTree = "<group>";
+		};
+		7A79DBB327D506A800ABDED0 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				7A06C7CA27DBDFAB00082992 /* holding.wav */,
+				7A06C7C627DBDE9D00082992 /* drop.mp3 */,
+				7AFDB63B27D951E6004F824B /* gameOverMusic.mp3 */,
+				7A79DBCC27D6434600ABDED0 /* die.mp3 */,
+				7A79DBC327D59C0300ABDED0 /* fryingPan.mp3 */,
+				7A79DBC227D59C0000ABDED0 /* jump.wav */,
+				7A79DBB427D5072F00ABDED0 /* principalMusic.mp3 */,
+				7A79DBCE27D846CC00ABDED0 /* homeMusic.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		7AF637AC27B973CF006783A6 /* Pause */ = {
@@ -280,8 +324,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A79DBC527D59C0300ABDED0 /* fryingPan.mp3 in Resources */,
+				7A79DBCF27D846CC00ABDED0 /* homeMusic.mp3 in Resources */,
+				7A79DBC427D59C0300ABDED0 /* jump.wav in Resources */,
+				7A06C7C727DBDE9D00082992 /* drop.mp3 in Resources */,
 				7A72205427A2E1A500720C1F /* Main.storyboard in Resources */,
+				7A79DBCD27D6434600ABDED0 /* die.mp3 in Resources */,
+				7A79DBB527D5072F00ABDED0 /* principalMusic.mp3 in Resources */,
 				7A72204B27A2E1A500720C1F /* GameScene.sks in Resources */,
+				7A06C7CB27DBDFAB00082992 /* holding.wav in Resources */,
+				7AFDB63C27D951E6004F824B /* gameOverMusic.mp3 in Resources */,
 				B5BE27BA27BCB81100F8EA40 /* GoogleService-Info.plist in Resources */,
 				7A72205627A2E1A700720C1F /* Assets.xcassets in Resources */,
 				7A72205927A2E1A700720C1F /* LaunchScreen.storyboard in Resources */,
@@ -359,17 +411,21 @@
 			files = (
 				B58627A827B131E300F09ABF /* Base.swift in Sources */,
 				7A0475B027B69B15001132CD /* UIButton.swift in Sources */,
+				7A06C7BF27D9A30A00082992 /* VolumeSwitch.swift in Sources */,
 				7AF637AE27B973F3006783A6 /* PauseViewController.swift in Sources */,
 				B53425B127A40F7500D3C44B /* GameObject.swift in Sources */,
 				7A72204F27A2E1A500720C1F /* GameScene.swift in Sources */,
 				7A72205127A2E1A500720C1F /* GameViewController.swift in Sources */,
 				B53425B327A4104B00D3C44B /* Player.swift in Sources */,
 				554ADA6C27D103DE0012A933 /* UILabel.swift in Sources */,
+				7A79DBD327D84B3200ABDED0 /* VolumeSlider.swift in Sources */,
 				7A587C1127A96A230025DD6C /* PlatformSpawner.swift in Sources */,
+				7A06C7C527DAF14500082992 /* ListOfSounds.swift in Sources */,
 				B53425B527A4151F00D3C44B /* PlayerLine.swift in Sources */,
 				7A587C1327AB43560025DD6C /* Ground.swift in Sources */,
 				7A1B15A127B94AC300D6F650 /* SettingsViewController.swift in Sources */,
 				7A0475AB27B6172D001132CD /* GameOverViewController.swift in Sources */,
+				7A79DBB727D512C600ABDED0 /* Sound.swift in Sources */,
 				7A72204927A2E1A500720C1F /* AppDelegate.swift in Sources */,
 				B53FB05627BB2AF1003BA867 /* Background.swift in Sources */,
 				7A587C1527AC9A650025DD6C /* Edge.swift in Sources */,
@@ -535,7 +591,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 5UX9P2B2T5;
+				DEVELOPMENT_TEAM = 6JQBX9UWVN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SuperBouncyFood/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Super Bouncy Food";
@@ -569,7 +625,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 5UX9P2B2T5;
+				DEVELOPMENT_TEAM = 6JQBX9UWVN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SuperBouncyFood/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Super Bouncy Food";

@@ -7,6 +7,7 @@
 
 import UIKit
 import GameKit
+import AVFoundation
 import AppTrackingTransparency
 import AdSupport
 
@@ -14,6 +15,7 @@ class HomeViewController: UIViewController, GKGameCenterControllerDelegate {
     @IBOutlet private weak var settingsButton: UIButton!
     @IBOutlet private weak var rankingButton: UIButton!
     @IBOutlet private weak var playButton: UIButton!
+    var homeMusic = Sound(name: "homeMusic", format: ".mp3", isMusic: true)
     
     var gcDefaultLeaderBoard = "General" // Check the default leaderboardID
     
@@ -25,6 +27,8 @@ class HomeViewController: UIViewController, GKGameCenterControllerDelegate {
         super.viewDidLoad()
         self.authenticateLocalPlayer()
         self.setupView()
+        
+        playSound()
         
         ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
             print("status - \(status)")
@@ -72,14 +76,17 @@ class HomeViewController: UIViewController, GKGameCenterControllerDelegate {
         let newViewController = storyboard?.instantiateViewController(withIdentifier: "game") as! GameViewController
         newViewController.modalPresentationStyle = .custom
         newViewController.gcDefaultLeaderBoard = gcDefaultLeaderBoard
-        
+        newViewController.homeView = self
+        self.homeMusic.stopSound()
         self.present(newViewController, animated: true, completion: nil)
+        
     }
     
     @IBAction func sentToSettings(_ sender: UIButton) {
         let newViewController = storyboard?.instantiateViewController(withIdentifier: "settings") as! SettingsViewController
         newViewController.modalPresentationStyle = .custom
         self.present(newViewController, animated: true, completion: nil)
+        
     
     }
     
@@ -87,5 +94,12 @@ class HomeViewController: UIViewController, GKGameCenterControllerDelegate {
         let GameCenterVC = GKGameCenterViewController(leaderboardID: self.gcDefaultLeaderBoard, playerScope: .global, timeScope: .allTime)
         GameCenterVC.gameCenterDelegate = self
         present(GameCenterVC, animated: true, completion: nil)
+    }
+    
+    func playSound(){
+        if ListOfSound.shared.switchMusicIsOn{
+            homeMusic.playSoundInLoop()
+        }
+        
     }
 }

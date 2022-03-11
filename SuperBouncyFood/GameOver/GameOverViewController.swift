@@ -15,6 +15,8 @@ class GameOverViewController: UIViewController, GKGameCenterControllerDelegate, 
     var gcDefaultLeaderBoard: String = ""
     var rewardedAd: GADRewardedAd?
     var watchedRewardComplete = false
+    
+    var gameOverMusic = Sound(name: "gameOverMusic", format: ".mp3", isMusic: true)
 
     @IBOutlet private weak var gameOverLabel: UILabel!
     @IBOutlet private weak var restartButton: UIButton!
@@ -33,6 +35,9 @@ class GameOverViewController: UIViewController, GKGameCenterControllerDelegate, 
         self.setupView()
         self.loadHighestScore()
         self.loadRewardedAd()
+        
+        gameOverMusic.playSoundInLoop()
+        //gameOverMusic.setVolume(volume: 0.7)
     }
     
     private func setupView() {
@@ -115,6 +120,7 @@ class GameOverViewController: UIViewController, GKGameCenterControllerDelegate, 
     }
     
     @IBAction func restartGame(_ sender: Any) {
+        gameOverMusic.stopSound()
         gameViewController?.start()
         self.dismiss(animated: true, completion: nil)
     }
@@ -126,6 +132,7 @@ class GameOverViewController: UIViewController, GKGameCenterControllerDelegate, 
     }
     
     @IBAction func seeAd(_ sender: Any) {
+        gameOverMusic.stopSound()
         watchedRewardComplete = false
         guard let ad = rewardedAd else {
             return

@@ -6,16 +6,27 @@
 //
 
 import UIKit
+import AVFoundation
+import MediaPlayer
 
 class SettingsViewController: UIViewController {
 
+    private var volumeSwitch = VolumeSwitch()
+    @IBOutlet weak var switchMusic: UISwitch!
+    
+    @IBOutlet weak var switchSoundEffect: UISwitch!
+    private var sounds = HomeViewController()
+    
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        switchMusic.setOn(ListOfSound.shared.switchMusicIsOn, animated: false)
+        switchSoundEffect.setOn(ListOfSound.shared.switchSoundEffectIsOn, animated: false)
     }
     
     
@@ -23,6 +34,13 @@ class SettingsViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     
     }
-
-
+    
+    
+    @IBAction func changedSwitchMusic(_ sender: UISwitch) {
+        volumeSwitch.changeMusic(sender: sender)
+    }
+    
+    @IBAction func changedSoundEffectSwitch(_ sender: UISwitch) {
+        volumeSwitch.changeSoundEffects(sender: sender)
+    }
 }
