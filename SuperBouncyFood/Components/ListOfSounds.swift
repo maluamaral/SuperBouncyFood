@@ -8,15 +8,8 @@
 import Foundation
 import AVFoundation
 
-class ListOfSound{
+class ListOfSound {
     static let shared = ListOfSound()
-    
-    private init(){
-        
-    }
-    
-    var switchMusicIsOn: Bool = true
-    var switchSoundEffectIsOn: Bool = true
-    var listOfSounds = [Sound]()
 
+    var listOfSounds = [Sound]()
 }

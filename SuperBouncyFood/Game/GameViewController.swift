@@ -164,7 +164,7 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADF
             
             view.showsFPS = Environment.SHOW_FPS_AND_NODES
             view.showsNodeCount = Environment.SHOW_FPS_AND_NODES
-            if ListOfSound.shared.switchMusicIsOn {
+            if UserDefaults.standard.bool(forKey: Constants.PLAY_MUSIC_KEY) {
                 playSound()
             }
 

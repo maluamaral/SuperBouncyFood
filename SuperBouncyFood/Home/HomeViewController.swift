@@ -93,7 +93,7 @@ class HomeViewController: UIViewController, GKGameCenterControllerDelegate {
     }
     
     func playSound() {
-        if ListOfSound.shared.switchMusicIsOn{
+        if UserDefaults.standard.bool(forKey: Constants.PLAY_MUSIC_KEY) {
             homeMusic.playSoundInLoop()
         }
     }

@@ -33,8 +33,8 @@ class PauseViewController: UIViewController {
         playButton.setupButton(iconString: "play", color: UIColor.init(named: "creme")!)
         restartButton.setupButton(iconString: "arrow.clockwise", color: UIColor.init(named: "creme")!)
         
-        musicSwitch.setOn(ListOfSound.shared.switchMusicIsOn, animated: false)
-        soundEffectSwitch.setOn(ListOfSound.shared.switchSoundEffectIsOn, animated: false)
+        musicSwitch.setOn(UserDefaults.standard.bool(forKey: Constants.PLAY_MUSIC_KEY), animated: false)
+        soundEffectSwitch.setOn(UserDefaults.standard.bool(forKey: Constants.PLAY_SOUND_EFFECTS_KEY), animated: false)
     }
     
     
@@ -58,13 +58,18 @@ class PauseViewController: UIViewController {
         gameViewController?.start()
         self.dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func changedMusicSwitch(_ sender: UISwitch){
+        UserDefaults.standard.set(sender.isOn, forKey: Constants.PLAY_MUSIC_KEY)
+        
         volumeSwitch.changeMusic(sender: sender)
         if sender.isOn {
             gameViewController?.playSound()
         }
     }
     @IBAction func changedSoundEffectSwitch(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: Constants.PLAY_SOUND_EFFECTS_KEY)
+        
         volumeSwitch.changeSoundEffects(sender: sender)
     }
 }

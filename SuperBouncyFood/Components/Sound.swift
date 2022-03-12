@@ -42,11 +42,11 @@ class Sound{
                 
                 ListOfSound.shared.listOfSounds.append(self)
                 
-                if self.isMusic && ListOfSound.shared.switchMusicIsOn{
+                if self.isMusic && UserDefaults.standard.bool(forKey: Constants.PLAY_MUSIC_KEY) {
                     soundPlay.play()
                 
                 }
-                if !self.isMusic && ListOfSound.shared.switchSoundEffectIsOn{
+                if !self.isMusic && UserDefaults.standard.bool(forKey: Constants.PLAY_SOUND_EFFECTS_KEY) {
                     soundPlay.play()
                 }
             }catch{
@@ -60,7 +60,6 @@ class Sound{
         if soundPlay.isPlaying {
             soundPlay.pause()
         }
-        
     }
     
     func continueSound(){
@@ -86,11 +85,11 @@ class Sound{
                 soundPlay.numberOfLoops = -1
                 ListOfSound.shared.listOfSounds.append(self)
                 
-                if self.isMusic && ListOfSound.shared.switchMusicIsOn{
+                if self.isMusic && UserDefaults.standard.bool(forKey: Constants.PLAY_MUSIC_KEY) {
                     soundPlay.play()
                 
                 }
-                if !isMusic && ListOfSound.shared.switchSoundEffectIsOn{
+                if !isMusic && UserDefaults.standard.bool(forKey: Constants.PLAY_SOUND_EFFECTS_KEY) {
                     soundPlay.play()
                 }
             }catch{

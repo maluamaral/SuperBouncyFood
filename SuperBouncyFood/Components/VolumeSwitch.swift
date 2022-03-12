@@ -15,26 +15,24 @@ class VolumeSwitch {
     func changeMusic(sender: UISwitch) {
         for sound in listOfSounds {
             if sound.isMusic {
+                UserDefaults.standard.set(sender.isOn, forKey: Constants.PLAY_MUSIC_KEY)
                 if !sender.isOn {
                     sound.setVolume(volume: 0.0)
-                    ListOfSound.shared.switchMusicIsOn = false
                 } else {
                     sound.setVolume(volume: 1.0)
-                    ListOfSound.shared.switchMusicIsOn = true
                 }
             }
         }
     }
     
-    func changeSoundEffects(sender: UISwitch){
+    func changeSoundEffects(sender: UISwitch) {
         for sound in listOfSounds {
-            if !sound.isMusic{
+            if !sound.isMusic {
+                UserDefaults.standard.set(sender.isOn, forKey: Constants.PLAY_SOUND_EFFECTS_KEY)
                 if !sender.isOn {
                     sound.setVolume(volume: 1.0)
-                    ListOfSound.shared.switchSoundEffectIsOn = false
-                }else{
+                } else {
                     sound.setVolume(volume: 0.0)
-                    ListOfSound.shared.switchSoundEffectIsOn = true
                 }
             }
         }

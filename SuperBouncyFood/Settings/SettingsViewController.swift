@@ -27,8 +27,8 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        switchMusic.setOn(ListOfSound.shared.switchMusicIsOn, animated: false)
-        switchSoundEffect.setOn(ListOfSound.shared.switchSoundEffectIsOn, animated: false)
+        switchMusic.setOn(UserDefaults.standard.bool(forKey: Constants.PLAY_MUSIC_KEY), animated: false)
+        switchSoundEffect.setOn(UserDefaults.standard.bool(forKey: Constants.PLAY_SOUND_EFFECTS_KEY), animated: false)
     }
     
     
@@ -38,6 +38,8 @@ class SettingsViewController: UIViewController {
     
     
     @IBAction func changedSwitchMusic(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: Constants.PLAY_MUSIC_KEY)
+        
         volumeSwitch.changeMusic(sender: sender)
         if sender.isOn {
             homeViewController?.playSound()
@@ -45,6 +47,8 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func changedSoundEffectSwitch(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: Constants.PLAY_SOUND_EFFECTS_KEY)
+        
         volumeSwitch.changeSoundEffects(sender: sender)
     }
 }
