@@ -12,24 +12,20 @@ class VolumeSwitch {
     
     private var switchIs = Bool()
     
-    func changeMusic(sender: UISwitch){
+    func changeMusic(sender: UISwitch) {
         for sound in listOfSounds {
-            if sound.isMusic{
+            if sound.isMusic {
                 if !sender.isOn {
                     sound.setVolume(volume: 0.0)
                     ListOfSound.shared.switchMusicIsOn = false
-        
-                }else{
+                } else {
                     sound.setVolume(volume: 1.0)
                     ListOfSound.shared.switchMusicIsOn = true
-                    
-            }
+                }
             }
         }
-        
-        //return
     }
-
+    
     func changeSoundEffects(sender: UISwitch){
         for sound in listOfSounds {
             if !sound.isMusic{
@@ -39,9 +35,8 @@ class VolumeSwitch {
                 }else{
                     sound.setVolume(volume: 0.0)
                     ListOfSound.shared.switchSoundEffectIsOn = true
+                }
             }
-            }
-
         }
     }
 }

@@ -19,8 +19,6 @@ class PauseViewController: UIViewController {
     @IBOutlet private weak var restartButton: UIButton!
     @IBOutlet private weak var playButton: UIButton!
     
-    
-    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -31,7 +29,7 @@ class PauseViewController: UIViewController {
         homeButton.titleLabel?.adjustsFontSizeToFitWidth = true
         homeButton.titleLabel!.baselineAdjustment = .alignCenters
         homeButton.titleLabel?.lineBreakMode = .byClipping
-
+        
         playButton.setupButton(iconString: "play", color: UIColor.init(named: "creme")!)
         restartButton.setupButton(iconString: "arrow.clockwise", color: UIColor.init(named: "creme")!)
         
@@ -39,7 +37,7 @@ class PauseViewController: UIViewController {
         soundEffectSwitch.setOn(ListOfSound.shared.switchSoundEffectIsOn, animated: false)
     }
     
-
+    
     @IBAction func goBackForStart(_ sender: UIButton) {
         gameViewController?.gameMusic.stopSound()
         gameViewController?.homeView?.playSound()
@@ -59,7 +57,10 @@ class PauseViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func changedMusicSwitch(_ sender: UISwitch){
-       volumeSwitch.changeMusic(sender: sender)
+        volumeSwitch.changeMusic(sender: sender)
+        if sender.isOn {
+            gameViewController?.playSound()
+        }
     }
     @IBAction func changedSoundEffectSwitch(_ sender: UISwitch) {
         volumeSwitch.changeSoundEffects(sender: sender)

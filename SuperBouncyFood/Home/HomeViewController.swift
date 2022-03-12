@@ -29,10 +29,6 @@ class HomeViewController: UIViewController, GKGameCenterControllerDelegate {
         self.setupView()
         
         playSound()
-        
-        ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
-            print("status - \(status)")
-        })
     }
     
     private func setupView() {
@@ -84,10 +80,10 @@ class HomeViewController: UIViewController, GKGameCenterControllerDelegate {
     
     @IBAction func sentToSettings(_ sender: UIButton) {
         let newViewController = storyboard?.instantiateViewController(withIdentifier: "settings") as! SettingsViewController
+        newViewController.homeViewController = self
         newViewController.modalPresentationStyle = .custom
-        self.present(newViewController, animated: true, completion: nil)
         
-    
+        self.present(newViewController, animated: true, completion: nil)
     }
     
     @IBAction func sendToRanking(_ sender: UIButton) {
@@ -96,10 +92,9 @@ class HomeViewController: UIViewController, GKGameCenterControllerDelegate {
         present(GameCenterVC, animated: true, completion: nil)
     }
     
-    func playSound(){
+    func playSound() {
         if ListOfSound.shared.switchMusicIsOn{
             homeMusic.playSoundInLoop()
         }
-        
     }
 }
