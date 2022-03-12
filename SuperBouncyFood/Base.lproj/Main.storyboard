@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
     <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -571,6 +572,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="closeButton" destination="psO-ve-qb3" id="PgC-0X-nsr"/>
                         <outlet property="switchMusic" destination="xhR-8i-VkK" id="fAw-Zk-VlT"/>
                         <outlet property="switchSoundEffect" destination="Jk2-XW-mPV" id="4Sm-aj-atY"/>
                     </connections>
@@ -762,6 +764,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="closeButton" destination="wbf-lm-LKB" id="FW7-hw-tOy"/>
                         <outlet property="homeButton" destination="dbe-Gz-zEa" id="7Ks-OB-tWh"/>
                         <outlet property="musicSwitch" destination="TXq-kc-WS5" id="dwB-wp-XkZ"/>
                         <outlet property="playButton" destination="qWP-GN-P5t" id="JmK-JO-LeK"/>

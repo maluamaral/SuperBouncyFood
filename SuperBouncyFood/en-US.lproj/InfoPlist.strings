@@ -1,0 +1,8 @@
+/* 
+  InfoPlist.strings
+  SuperBouncyFood
+
+  Created by Felipe Seolin Bento on 09/03/22.
+  
+*/
+NSUserTrackingUsageDescription="This identifier allows you to receive personalized ads.";

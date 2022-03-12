@@ -11,6 +11,8 @@ import MediaPlayer
 
 class SettingsViewController: UIViewController {
 
+    @IBOutlet private weak var closeButton: UIButton!
+    
     var homeViewController: HomeViewController?
     
     private var volumeSwitch = VolumeSwitch()
@@ -29,6 +31,8 @@ class SettingsViewController: UIViewController {
         
         switchMusic.setOn(UserDefaults.standard.bool(forKey: Constants.PLAY_MUSIC_KEY), animated: false)
         switchSoundEffect.setOn(UserDefaults.standard.bool(forKey: Constants.PLAY_SOUND_EFFECTS_KEY), animated: false)
+
+        closeButton.removeLabel()
     }
     
     

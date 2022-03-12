@@ -18,6 +18,7 @@ class PauseViewController: UIViewController {
     @IBOutlet private weak var homeButton: UIButton!
     @IBOutlet private weak var restartButton: UIButton!
     @IBOutlet private weak var playButton: UIButton!
+    @IBOutlet private weak var closeButton: UIButton!
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -32,6 +33,7 @@ class PauseViewController: UIViewController {
         
         playButton.setupButton(iconString: "play", color: UIColor.init(named: "creme")!)
         restartButton.setupButton(iconString: "arrow.clockwise", color: UIColor.init(named: "creme")!)
+        closeButton.removeLabel()
         
         musicSwitch.setOn(UserDefaults.standard.bool(forKey: Constants.PLAY_MUSIC_KEY), animated: false)
         soundEffectSwitch.setOn(UserDefaults.standard.bool(forKey: Constants.PLAY_SOUND_EFFECTS_KEY), animated: false)
