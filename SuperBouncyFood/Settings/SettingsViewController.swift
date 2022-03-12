@@ -18,6 +18,7 @@ class SettingsViewController: UIViewController {
     private var volumeSwitch = VolumeSwitch()
     @IBOutlet weak var switchMusic: UISwitch!
     
+    @IBOutlet weak var languageButton: UIButton!
     @IBOutlet weak var switchSoundEffect: UISwitch!
     private var sounds = HomeViewController()
     
@@ -33,6 +34,7 @@ class SettingsViewController: UIViewController {
         switchSoundEffect.setOn(UserDefaults.standard.bool(forKey: Constants.PLAY_SOUND_EFFECTS_KEY), animated: false)
 
         closeButton.removeLabel()
+        languageButton.removeLabel()
     }
     
     
@@ -54,5 +56,9 @@ class SettingsViewController: UIViewController {
         UserDefaults.standard.set(sender.isOn, forKey: Constants.PLAY_SOUND_EFFECTS_KEY)
         
         volumeSwitch.changeSoundEffects(sender: sender)
+    }
+    
+    @IBAction func setLanguage(_ sender: Any) {
+        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
     }
 }
