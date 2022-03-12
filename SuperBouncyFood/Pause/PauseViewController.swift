@@ -45,10 +45,12 @@ class PauseViewController: UIViewController {
     }
     
     @IBAction func goBackToGame(_ sender: UIButton) {
+        gameViewController?.unpauseGame()
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func returnToGame(_ sender: Any) {
+        gameViewController?.unpauseGame()
         self.dismiss(animated: true, completion: nil)
     }
     

@@ -175,6 +175,10 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADF
         gameMusic.playSoundInLoop()
     }
     
+    func unpauseGame() {
+        gameScene?.scene?.isPaused = false
+    }
+    
     func continueGame() {
         gameMusic.continueSound()
         guard let firstPlatformPosition = self.firstPlatformPosition else {
@@ -196,6 +200,7 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADF
         let newViewController = storyboard?.instantiateViewController(withIdentifier: "pause") as! PauseViewController
         newViewController.modalPresentationStyle = .custom
         newViewController.gameViewController = self
+        gameScene?.scene?.isPaused = true
         
         self.present(newViewController, animated: true, completion: nil)
     }
