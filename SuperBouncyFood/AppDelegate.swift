@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        checkSoundPreference()
         // Override point for customization after application launch.
         application.isStatusBarHidden = true
         
@@ -32,6 +33,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             didFinishLaunchingWithOptions: launchOptions)
         
         return true
+    }
+    
+    private func checkSoundPreference() {
+        if UserDefaults.standard.object(forKey: Constants.PLAY_MUSIC_KEY) == nil {
+            UserDefaults.standard.set(true, forKey: Constants.PLAY_MUSIC_KEY)
+        }
+        
+        if UserDefaults.standard.object(forKey: Constants.PLAY_SOUND_EFFECTS_KEY) == nil {
+            UserDefaults.standard.set(true, forKey: Constants.PLAY_SOUND_EFFECTS_KEY)
+        }
     }
     
     func requestDataPermission() {

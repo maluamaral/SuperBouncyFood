@@ -9,6 +9,7 @@ import UIKit
 import SpriteKit
 import GameplayKit
 import GameKit
+import AVFoundation
 import GoogleMobileAds
 
 class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADFullScreenContentDelegate {
@@ -16,6 +17,8 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADF
     var isDisplayingGameOver = false
     var isTryingAgain = false
     var firstPlatformPosition: SKNode?
+    var gameMusic = Sound(name: "principalMusic", format: ".mp3", isMusic: true)
+    var homeView: HomeViewController?
     
     @IBOutlet weak var bannerView: GADBannerView!
     private var interstitial: GADInterstitialAd?
@@ -161,10 +164,23 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADF
             
             view.showsFPS = Environment.SHOW_FPS_AND_NODES
             view.showsNodeCount = Environment.SHOW_FPS_AND_NODES
+            if UserDefaults.standard.bool(forKey: Constants.PLAY_MUSIC_KEY) {
+                playSound()
+            }
+
         }
     }
     
+    func playSound() {
+        gameMusic.playSoundInLoop()
+    }
+    
+    func unpauseGame() {
+        gameScene?.scene?.isPaused = false
+    }
+    
     func continueGame() {
+        gameMusic.continueSound()
         guard let firstPlatformPosition = self.firstPlatformPosition else {
             return
         }
@@ -184,6 +200,7 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADF
         let newViewController = storyboard?.instantiateViewController(withIdentifier: "pause") as! PauseViewController
         newViewController.modalPresentationStyle = .custom
         newViewController.gameViewController = self
+        gameScene?.scene?.isPaused = true
         
         self.present(newViewController, animated: true, completion: nil)
     }
@@ -199,6 +216,8 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADF
         
         self.currentScore = score
         isDisplayingGameOver = true
+        gameScene?.dieSound.playSound()
+        gameMusic.stopSound()
         
         showInterstitialAd()
     }
@@ -246,5 +265,6 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADF
         view.addSubview(bannerView)
         view.addConstraints(constraints)
     }
+    
 }
 

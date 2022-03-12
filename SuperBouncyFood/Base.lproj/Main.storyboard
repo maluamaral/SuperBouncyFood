@@ -459,53 +459,75 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7Ob-kp-PSG" userLabel="Main Stack">
-                                <rect key="frame" x="74.5" y="201" width="595" height="187"/>
+                                <rect key="frame" x="74.5" y="201" width="595" height="133"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5oT-NF-Ees" userLabel="Music Stack">
-                                        <rect key="frame" x="0.0" y="0.0" width="595" height="59"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5oT-NF-Ees" userLabel="Music Stack">
+                                        <rect key="frame" x="0.0" y="0.0" width="595" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Music" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brV-cA-fc2">
-                                                <rect key="frame" x="0.0" y="0.0" width="595" height="29"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="546" height="31"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                                 <color key="textColor" name="tomate"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ehI-BZ-vsU">
-                                                <rect key="frame" x="-2" y="29" width="599" height="31"/>
-                                                <color key="minimumTrackTintColor" name="coxinha"/>
-                                            </slider>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xhR-8i-VkK">
+                                                <rect key="frame" x="546" y="0.0" width="51" height="31"/>
+                                                <color key="onTintColor" name="coxinha"/>
+                                                <connections>
+                                                    <action selector="changedSwitchMusic:" destination="QOW-PE-Pxd" eventType="valueChanged" id="7B4-LY-cWX"/>
+                                                </connections>
+                                            </switch>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1V4-IG-kAG" userLabel="Sound effects Stack">
-                                        <rect key="frame" x="0.0" y="79" width="595" height="59"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9XX-cS-YUG" userLabel="Music Stack">
+                                        <rect key="frame" x="0.0" y="51" width="595" height="31"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Sound effects" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebz-2b-chT">
-                                                <rect key="frame" x="0.0" y="0.0" width="595" height="29"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Sound effects" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ct5-ab-sU9">
+                                                <rect key="frame" x="0.0" y="0.0" width="546" height="31"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                                 <color key="textColor" name="tomate"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="AtX-NE-oGo">
-                                                <rect key="frame" x="-2" y="29" width="599" height="31"/>
-                                                <color key="minimumTrackTintColor" name="coxinha"/>
-                                            </slider>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jk2-XW-mPV">
+                                                <rect key="frame" x="546" y="0.0" width="51" height="31"/>
+                                                <color key="onTintColor" name="coxinha"/>
+                                                <connections>
+                                                    <action selector="changedSoundEffectSwitch:" destination="QOW-PE-Pxd" eventType="valueChanged" id="Id1-Me-Eip"/>
+                                                </connections>
+                                            </switch>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wHl-0F-nYO" userLabel="Language Stack">
-                                        <rect key="frame" x="0.0" y="158" width="595" height="29"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="wHl-0F-nYO" userLabel="Language Stack">
+                                        <rect key="frame" x="0.0" y="102" width="595" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Pt-eP-mno">
-                                                <rect key="frame" x="0.0" y="0.0" width="106" height="29"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="106" height="31"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                                 <color key="textColor" name="tomate"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Portuguese" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dC-JD-N2F">
-                                                <rect key="frame" x="106" y="0.0" width="489" height="29"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <color key="textColor" name="brigadeiro"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jH6-ql-4HA">
+                                                <rect key="frame" x="465.5" y="0.0" width="129.5" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Portuguese" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dC-JD-N2F">
+                                                        <rect key="frame" x="0.0" y="5" width="92.5" height="21.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <color key="textColor" name="brigadeiro"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dDb-yj-eni" userLabel="Set Language button">
+                                                        <rect key="frame" x="92.5" y="0.0" width="37" height="31"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="chevron.right" catalog="system" symbolScale="large"/>
+                                                            <color key="baseForegroundColor" name="coxinha"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="setLanguage:" destination="QOW-PE-Pxd" eventType="touchUpInside" id="WH8-VM-jcw"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -567,11 +589,14 @@
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="psO-ve-qb3" id="PgC-0X-nsr"/>
+                        <outlet property="languageButton" destination="dDb-yj-eni" id="O75-af-MiX"/>
+                        <outlet property="switchMusic" destination="xhR-8i-VkK" id="fAw-Zk-VlT"/>
+                        <outlet property="switchSoundEffect" destination="Jk2-XW-mPV" id="4Sm-aj-atY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BZt-9a-Bqc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1042.9906542056074" y="105.61555075593954"/>
+            <point key="canvasLocation" x="1042.5" y="105"/>
         </scene>
         <!--Pause View Controller-->
         <scene sceneID="9Wm-px-9HX">
@@ -612,14 +637,14 @@
                                     <fontDescription key="fontDescription" type="system" weight="black" pointSize="120"/>
                                 </variation>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="f0G-Ae-OTW" userLabel="Main Stack">
-                                <rect key="frame" x="94.5" y="346.5" width="555" height="452"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="f0G-Ae-OTW" userLabel="Main Stack">
+                                <rect key="frame" x="94.5" y="346.5" width="555" height="278.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Dbg-YT-SbS" userLabel="Music Stack">
-                                        <rect key="frame" x="0.0" y="0.0" width="555" height="83"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Dbg-YT-SbS" userLabel="Music Stack">
+                                        <rect key="frame" x="0.0" y="0.0" width="555" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAD-2m-c9f" userLabel="Music">
-                                                <rect key="frame" x="0.0" y="0.0" width="555" height="43"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="496" height="31"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                                 <color key="textColor" name="creme"/>
                                                 <nil key="highlightedColor"/>
@@ -627,17 +652,20 @@
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="36"/>
                                                 </variation>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="6RE-sJ-dll" userLabel="Music Slider">
-                                                <rect key="frame" x="-2" y="53" width="559" height="31"/>
-                                                <color key="tintColor" name="coxinha"/>
-                                            </slider>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TXq-kc-WS5">
+                                                <rect key="frame" x="506" y="0.0" width="51" height="31"/>
+                                                <color key="onTintColor" name="coxinha"/>
+                                                <connections>
+                                                    <action selector="changedMusicSwitch:" destination="La9-4n-aFk" eventType="valueChanged" id="m00-NC-yo0"/>
+                                                </connections>
+                                            </switch>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZEu-Lg-Efg" userLabel="Sound effects Stack">
-                                        <rect key="frame" x="0.0" y="123" width="555" height="83"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZEu-Lg-Efg" userLabel="Sound effects Stack">
+                                        <rect key="frame" x="0.0" y="71" width="555" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sound effects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xso-if-YNJ" userLabel="Sound effects">
-                                                <rect key="frame" x="0.0" y="0.0" width="555" height="43"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="496" height="31"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                                 <color key="textColor" name="creme"/>
                                                 <nil key="highlightedColor"/>
@@ -645,14 +673,17 @@
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="36"/>
                                                 </variation>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Zgz-Bf-ICk" userLabel="Music Slider">
-                                                <rect key="frame" x="-2" y="53" width="559" height="31"/>
-                                                <color key="tintColor" name="coxinha"/>
-                                            </slider>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fXC-ba-zeU">
+                                                <rect key="frame" x="506" y="0.0" width="51" height="31"/>
+                                                <color key="onTintColor" name="coxinha"/>
+                                                <connections>
+                                                    <action selector="changedSoundEffectSwitch:" destination="La9-4n-aFk" eventType="valueChanged" id="wdT-Iy-J8h"/>
+                                                </connections>
+                                            </switch>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbe-Gz-zEa">
-                                        <rect key="frame" x="0.0" y="246" width="555" height="83"/>
+                                        <rect key="frame" x="0.0" y="142" width="555" height="43"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Home">
@@ -676,10 +707,10 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jLb-nt-EiQ">
-                                        <rect key="frame" x="0.0" y="369" width="555" height="83"/>
+                                        <rect key="frame" x="0.0" y="225" width="555" height="53.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HGH-MF-ksg" userLabel="Restart Stack">
-                                                <rect key="frame" x="0.0" y="15" width="277.5" height="52.5"/>
+                                                <rect key="frame" x="0.0" y="0.5" width="277.5" height="52.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YrF-XS-yxG">
                                                         <rect key="frame" x="0.0" y="0.0" width="277.5" height="14"/>
@@ -704,7 +735,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="VYG-Cm-DBo" userLabel="Play Stack">
-                                                <rect key="frame" x="277.5" y="14.5" width="277.5" height="53.5"/>
+                                                <rect key="frame" x="277.5" y="0.0" width="277.5" height="53.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qWP-GN-P5t">
                                                         <rect key="frame" x="0.0" y="0.0" width="277.5" height="14"/>
@@ -714,7 +745,7 @@
                                                             <action selector="returnToGame:" destination="La9-4n-aFk" eventType="touchUpInside" id="aTn-ND-yP2"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Sx-OW-Wi8">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Play" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Sx-OW-Wi8">
                                                         <rect key="frame" x="0.0" y="15" width="277.5" height="38.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="creme"/>
@@ -752,8 +783,10 @@
                     <connections>
                         <outlet property="closeButton" destination="wbf-lm-LKB" id="FW7-hw-tOy"/>
                         <outlet property="homeButton" destination="dbe-Gz-zEa" id="7Ks-OB-tWh"/>
+                        <outlet property="musicSwitch" destination="TXq-kc-WS5" id="dwB-wp-XkZ"/>
                         <outlet property="playButton" destination="qWP-GN-P5t" id="JmK-JO-LeK"/>
                         <outlet property="restartButton" destination="YrF-XS-yxG" id="vXg-fX-533"/>
+                        <outlet property="soundEffectSwitch" destination="fXC-ba-zeU" id="FDQ-fV-fDP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uyn-Hy-k32" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -835,6 +868,7 @@
     </scenes>
     <resources>
         <image name="Fire" width="390" height="181"/>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="cloud" width="489" height="243"/>
         <image name="coxinhaWithMovement" width="99" height="100"/>
         <image name="deadcoxinha" width="233" height="236"/>
